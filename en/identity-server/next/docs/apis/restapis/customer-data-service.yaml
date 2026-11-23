@@ -1,0 +1,2795 @@
+openapi: 3.0.0
+info:
+  title: Customer Data Service API
+  description: |
+    Manage the profiles, profile attributes, unification rules, consent categories, settings and
+    review tasks of an organization in the Customer Data Service (CDS), share profile attributes and
+    unification rules with child organizations, and choose the child organizations that use CDS.
+
+    Call the API with an access token issued for the organization, with the `iam-cds` audience and
+    the scope each operation names. In a child organization, use the path of the child organization and
+    the `internal_org_cds_*` scope of the operation, for example `internal_org_cds_profile_view` for
+    `internal_cds_profile_view`.
+  version: v1
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+- url: https://{server-url}/t/{org-handle}/cds/api/v1
+  description: An organization.
+  variables:
+    server-url:
+      default: localhost:8900
+    org-handle:
+      default: carbon.super
+- url: https://{server-url}/t/{org-handle}/o/{org-id}/cds/api/v1
+  description: A child organization of the organization.
+  variables:
+    server-url:
+      default: localhost:8900
+    org-handle:
+      default: carbon.super
+    org-id:
+      default: 9b2e4c71-5d8a-4f3e-a6b0-2c7d1e8f4a95
+security:
+- bearerAuth: []
+paths:
+  /profiles:
+    get:
+      tags:
+      - Profile
+      summary: Get all profiles
+      description: |
+        Lists profiles, optionally narrowed by `filter`, by `fuzzyFilter`, or by both.
+
+        `filter` selects profiles whose values satisfy the condition exactly.
+        `fuzzyFilter` runs the identity resolution engine instead, returning profiles whose
+        values are *similar* to the ones given, each with the score it was given.
+
+        Supplying both is a hybrid search: a profile is returned only where it is similar on
+        the `fuzzyFilter` values **and** exactly satisfies every `filter` condition.
+
+        <br><b>Scope required:</b> `internal_cds_profile_view`
+      operationId: getAllProfiles
+      parameters:
+      - name: filter
+        in: query
+        required: false
+        description: |
+          An exact condition, written `<key> <operator> <value>`. Repeat the parameter to
+          apply more than one condition, or join several in one value with ` and `.
+
+          Operators are `eq` (equals), `co` (contains) and `sw` (starts with).
+        schema:
+          type: array
+          items:
+            type: string
+        example:
+        - traits.city eq Colombo
+      - name: fuzzyFilter
+        in: query
+        required: false
+        description: |
+          A value to match on similarity rather than equality, written the same way and
+          always compared with `eq` — for example `traits.name eq Jonathan Smith`, which
+          also matches `Jonathon Smyth`. Repeat the parameter to search on more than one
+          attribute.
+
+          How closely two values have to agree is decided by the organization's active
+          unification rules: an attribute is only searched where a rule names it, and the
+          rule's attribute type selects the comparison. A rule matched exactly contributes
+          nothing extra here, so tolerant search needs at least one rule set to `fuzzy`.
+
+          Tolerant matching has to be switched on for the server
+          (`identity_resolution.fuzzy_matching_enabled`). While it is off, rules stored as
+          fuzzy are read as exact and this parameter returns only exact matches.
+        schema:
+          type: array
+          items:
+            type: string
+        example:
+        - traits.name eq Jonathan Smith
+      - name: threshold
+        in: query
+        required: false
+        description: |
+          Lowest match score to return. Only applies alongside `fuzzyFilter`. Omitted, or 0
+          or less, the `manual_review_threshold` of the organization is used, which is 0.75
+          unless the organization changed it. A value above 1 is treated as 1. A value that
+          is not a number gives a 400.
+        schema:
+          type: number
+          format: double
+        example: 0.75
+      - name: page_size
+        in: query
+        required: false
+        description: |
+          Maximum number of profiles to return. Defaults to 5. A value above 200 is treated
+          as 200, and 0 returns an empty page. A value that is not a whole number, or is
+          negative, gives a 400.
+        schema:
+          type: integer
+          minimum: 0
+          default: 5
+      - name: cursor
+        in: query
+        required: false
+        description: |
+          Opaque cursor from `next_cursor` or `previous_cursor` of a previous page. Used
+          with or without `filter`. Ignored by a `fuzzyFilter` search. An invalid cursor
+          gives a 400.
+        schema:
+          type: string
+      - name: attributes
+        in: query
+        required: false
+        description: |
+          Comma-separated list of the fields to return in each profile, for example
+          `traits.city,identity_attributes`. A name with a dot selects one attribute of a
+          scope; a scope alone selects all of its attributes. Omitted, each profile in the
+          list carries only `profile_id`, `user_id`, `meta` and `merged_from`.
+        schema:
+          type: string
+        example: traits.city,identity_attributes
+      responses:
+        '200':
+          description: |
+            A page of profiles. Where `fuzzyFilter` was supplied each profile also carries
+            `match_score` and `score_breakdown`, highest score first, and `pagination`
+            holds only `count` and `page_size`.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfileListAPIResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    post:
+      tags:
+      - Profile
+      summary: Create a profile
+      description: |
+        Creates a profile and sets the `cds_profile` cookie that tracks it as an anonymous
+        profile.
+        If the request carries a `cds_profile` cookie that belongs to an active profile, no
+        profile is created and the existing profile is returned with a 200.
+
+        Fields that are not part of the request schema are rejected with a 400.
+
+        <br><b>Scope required:</b> `internal_cds_profile_create`
+      operationId: createProfile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProfileRequest'
+      responses:
+        '200':
+          description: A valid `cds_profile` cookie was sent, so the existing profile is returned.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfileResponse'
+        '201':
+          description: Profile created.
+          headers:
+            Location:
+              description: URL of the new profile.
+              schema:
+                type: string
+            Set-Cookie:
+              description: The `cds_profile` cookie (HttpOnly) that identifies the anonymous profile.
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfileResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /profiles/link:
+    post:
+      tags:
+      - Profile
+      summary: Link an anonymous profile to a user
+      description: |
+        Sets the `user_id` of an anonymous profile.
+        The call is idempotent: linking a profile to the user it is already linked to returns
+        a 200 with no change.
+
+        <br><b>Scope required:</b> `internal_cds_profile_link`
+      operationId: linkProfile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProfileLinkRequest'
+      responses:
+        '200':
+          description: Profile linked successfully, or it was already linked to this user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfileLinkResponse'
+        '400':
+          description: |
+            Bad Request. The body is invalid, `profile_id` or `user_id` is missing, or CDS is not
+            enabled for the organization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/ProfileNotFound'
+        '409':
+          description: Conflict. The profile is already linked to a different user (`PROFILE_ALREADY_LINKED`).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /profiles/{profileId}:
+    parameters:
+    - $ref: '#/components/parameters/ProfileId'
+    get:
+      tags:
+      - Profile
+      summary: Retrieve profile by Id
+      description: |
+        Unless the calling application is listed in `system_applications`, the profile is filtered by
+        consent: only
+        the attributes covered by a consent the profile has given are returned. Use
+        `consentCategoryId` to limit this to specific consent categories.
+
+        <br><b>Scope required:</b> `internal_cds_profile_view`
+      operationId: getProfile
+      parameters:
+      - name: includeApplicationData
+        in: query
+        required: false
+        description: |
+          Whether to include `application_data` in the response. Omitted, it is not
+          returned. An application not listed in `system_applications` only ever gets the data
+          of its own application.
+        schema:
+          type: boolean
+          default: false
+      - name: application_identifier
+        in: query
+        required: false
+        description: |
+          Application identifiers whose `application_data` is returned, comma-separated or
+          repeated. Use `*` for all applications.
+        schema:
+          type: string
+        example: app-1,app-2
+      - name: consentCategoryId
+        in: query
+        required: false
+        description: |
+          Consent categories to filter the response by, comma-separated or repeated. Not used
+          for an application listed in `system_applications`.
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: Profile retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfileResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/ProfileNotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    patch:
+      tags:
+      - Profile
+      summary: Update profile by Id
+      description: |
+        Partially updates a profile.
+        `identity_attributes`, `traits` and `application_data` in the body are deep merged
+        into the existing values. If the profile has been merged into another profile, the
+        patch is applied to that profile's data.
+
+        <br><b>Scope required:</b> `internal_cds_profile_update`
+      operationId: patchProfile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProfilePatchRequest'
+      responses:
+        '200':
+          description: Profile updated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfileResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/ProfileNotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    delete:
+      tags:
+      - Profile
+      summary: Delete profile by Id
+      description: |
+        <b>Scope required:</b> `internal_cds_profile_delete`
+      operationId: deleteProfile
+      responses:
+        '204':
+          description: Profile deleted successfully
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/ProfileNotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /profiles/{profileId}/consents:
+    parameters:
+    - $ref: '#/components/parameters/ProfileId'
+    get:
+      tags:
+      - Profile
+      summary: Get the consents of a profile
+      description: |
+        <b>Scope required:</b> `internal_cds_profile_view`
+      operationId: getProfileConsents
+      responses:
+        '200':
+          description: The consent records of the profile.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ConsentRecord'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/ProfileNotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    put:
+      tags:
+      - Profile
+      summary: Update the consents of a profile
+      description: |
+        <b>Scope required:</b> `internal_cds_profile_update`
+      operationId: updateProfileConsents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ConsentRecord'
+      responses:
+        '200':
+          description: Consents updated. The body echoes the records that were sent.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ConsentRecord'
+        '400':
+          description: |
+            Bad Request. The body is not a valid array of consent records (this response can have
+            a plain text body), or CDS is not enabled for the organization.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/ProfileNotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /profile-schema:
+    get:
+      tags:
+      - Profile Schema
+      summary: Get the whole profile schema
+      description: |
+        <b>Scope required:</b> `internal_cds_profile_schema_view`
+      operationId: getProfileSchema
+      responses:
+        '200':
+          description: The profile schema of the organization.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfileSchema'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    delete:
+      tags:
+      - Profile Schema
+      summary: Delete the whole profile schema
+      description: |
+        <b>Scope required:</b> `internal_cds_profile_schema_delete`
+      operationId: deleteProfileSchema
+      responses:
+        '204':
+          description: Profile schema deleted
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /profile-schema/{scope}:
+    parameters:
+    - $ref: '#/components/parameters/Scope'
+    get:
+      tags:
+      - Profile Schema
+      summary: Get the schema attributes of a scope
+      description: |
+        <b>Scope required:</b> `internal_cds_profile_schema_view`
+      operationId: getProfileSchemaForScope
+      parameters:
+      - name: filter
+        in: query
+        required: false
+        description: |
+          A condition, written `<key> <operator> <value>`, for example
+          `application_identifier eq app-1`. Repeat the parameter, or join conditions with
+          ` and `. The keys are `attribute_name` and `application_identifier`.
+        schema:
+          type: array
+          items:
+            type: string
+        example:
+        - application_identifier eq app-1
+      responses:
+        '200':
+          description: |
+            The attributes of the scope. For `identity_attributes` and `traits` the body is an
+            array. For `application_data` it is an object that holds the attributes of each
+            application under the application identifier, for all applications unless a filter
+            narrows them.
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - type: array
+                  items:
+                    $ref: '#/components/schemas/ProfileSchemaAttribute'
+                - type: object
+                  additionalProperties:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ProfileSchemaAttribute'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    post:
+      tags:
+      - Profile Schema
+      summary: Add schema attributes to a scope
+      description: |
+        The body is an **array**, so one call can add
+        several attributes. Fields that are not part of the attribute schema are rejected.
+
+        The call returns a 400 when the array is empty, when the scope is `identity_attributes`
+        (those are managed in the identity provider), or when an attribute sets
+        `application_identifier` in a scope other than `application_data`.
+
+        `attribute_id` is generated when omitted, and `mutability` defaults to `readWrite`.
+
+        <br><b>Scope required:</b> `internal_cds_profile_schema_create`
+      operationId: addProfileSchemaAttributes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              minItems: 1
+              items:
+                $ref: '#/components/schemas/ProfileSchemaAttribute'
+      responses:
+        '201':
+          description: The attributes that were created.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProfileSchemaAttribute'
+        '400':
+          description: |
+            Bad Request. The body is invalid or empty, the scope is `identity_attributes` or not
+            a valid scope, or `application_identifier` is used outside `application_data`. This
+            response uses either form of error body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnyError'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: Conflict. An attribute conflicts with one that already exists.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    delete:
+      tags:
+      - Profile Schema
+      summary: Delete all schema attributes of a scope
+      description: |
+        Not allowed for `identity_attributes`, which
+        returns a 405.
+
+        <br><b>Scope required:</b> `internal_cds_profile_schema_delete`
+      operationId: deleteProfileSchemaForScope
+      responses:
+        '204':
+          description: Attributes deleted
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '405':
+          description: Method Not Allowed. The scope is `identity_attributes`, whose attributes are managed
+            in the identity provider.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /profile-schema/{scope}/{attrID}:
+    parameters:
+    - $ref: '#/components/parameters/Scope'
+    - $ref: '#/components/parameters/AttributeId'
+    get:
+      tags:
+      - Profile Schema
+      summary: Get a schema attribute
+      description: |
+        <b>Scope required:</b> `internal_cds_profile_schema_view`
+      operationId: getProfileSchemaAttribute
+      responses:
+        '200':
+          description: The attribute.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfileSchemaAttribute'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    put:
+      tags:
+      - Profile Schema
+      summary: Update a schema attribute
+      description: |
+        Despite the method, this is a **partial
+        update**: only the fields in the body change. The body is any JSON object of attribute
+        fields.
+
+        Not allowed for `identity_attributes`, which returns a 400.
+
+        <br><b>Scope required:</b> `internal_cds_profile_schema_update`
+      operationId: updateProfileSchemaAttribute
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+              description: The attribute fields to change.
+              example:
+                display_name: Preferred city
+      responses:
+        '200':
+          description: The attribute after the update.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfileSchemaAttribute'
+        '400':
+          description: |
+            Bad Request. The body is not valid (this response can have a plain text body), the
+            scope is `identity_attributes` or not a valid scope, or CDS is not enabled.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    delete:
+      tags:
+      - Profile Schema
+      summary: Delete a schema attribute
+      description: |
+        The call is idempotent: deleting an attribute that does not exist also returns a 204.
+        A shared or inherited attribute is read-only and gives a 403. An attribute that is a
+        sub-attribute of another attribute cannot be deleted until it is removed from its
+        parent, which gives a 400.
+
+        <br><b>Scope required:</b> `internal_cds_profile_schema_delete`
+      operationId: deleteProfileSchemaAttribute
+      responses:
+        '204':
+          description: Attribute deleted, or it did not exist.
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /profile-schema/{scope}/{attrID}/sharing-policies:
+    parameters:
+    - $ref: '#/components/parameters/Scope'
+    - $ref: '#/components/parameters/AttributeId'
+    post:
+      tags:
+      - Sharing
+      summary: Share a profile schema attribute with child organizations
+      description: |
+        Only the organization that owns the attribute can share it. Identity attributes cannot be
+        shared. A complex attribute is shared as one unit: its sub-attributes follow the sharing
+        policies of the parent, and a sub-attribute cannot be shared alone. An organization has a
+        maximum of one policy for each attribute.
+
+        <br><b>Scope required:</b> `internal_cds_profile_schema_share_update`
+      operationId: createSchemaAttributeSharingPolicy
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SharingPolicyRequest'
+      responses:
+        '201':
+          description: Sharing policy created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharingPolicy'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    get:
+      tags:
+      - Sharing
+      summary: List the sharing policies of a profile schema attribute
+      description: |
+        <b>Scope required:</b> `internal_cds_profile_schema_share_view`
+      operationId: listSchemaAttributeSharingPolicies
+      responses:
+        '200':
+          description: Sharing policies retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharingPolicyList'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /profile-schema/{scope}/{attrID}/sharing-policies/{policyId}:
+    parameters:
+    - $ref: '#/components/parameters/Scope'
+    - $ref: '#/components/parameters/AttributeId'
+    - $ref: '#/components/parameters/PolicyId'
+    get:
+      tags:
+      - Sharing
+      summary: Get a sharing policy of a profile schema attribute
+      description: |
+        <b>Scope required:</b> `internal_cds_profile_schema_share_view`
+      operationId: getSchemaAttributeSharingPolicy
+      responses:
+        '200':
+          description: Sharing policy retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharingPolicy'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    put:
+      tags:
+      - Sharing
+      summary: Replace the target organizations of a sharing policy
+      description: |
+        <b>Scope required:</b> `internal_cds_profile_schema_share_update`
+      operationId: updateSchemaAttributeSharingPolicy
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SharingPolicyRequest'
+      responses:
+        '200':
+          description: Sharing policy updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharingPolicy'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    delete:
+      tags:
+      - Sharing
+      summary: Delete a sharing policy of a profile schema attribute
+      description: |
+        <b>Scope required:</b> `internal_cds_profile_schema_share_update`
+      operationId: deleteSchemaAttributeSharingPolicy
+      responses:
+        '204':
+          description: Sharing policy deleted
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /unification-rules/options:
+    get:
+      tags:
+      - Unification Rules
+      summary: Get the attribute types and matching methods that a rule can use
+      description: |
+        <b>Scope required:</b> `internal_cds_unification_rule_view`
+      operationId: getUnificationOptions
+      responses:
+        '200':
+          description: The attribute types, each with the matching methods it supports.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnificationOptionsResponse'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /unification-rules:
+    post:
+      tags:
+      - Unification Rules
+      summary: Add new unification rule
+      description: |
+        Fields that are not part of the request
+        schema are rejected with a 400.
+
+        The call returns a 400 when:
+        - `property_name` is `user_id` or `identity_attributes.user_id`, starts with
+          `application_data.`, is not in the profile schema, or is a complex attribute
+        - `unification_method` is `fuzzy` and `attribute_type` is missing
+        - `unification_method` is `fuzzy` and the attribute type does not support it
+        - `unification_method` is `fuzzy` and the server has
+          `identity_resolution.fuzzy_matching_enabled` turned off
+        - `match_strength` or `mismatch_strength` is set and the server has
+          `identity_resolution.allow_evidence_strength_override` turned off
+        - `attribute_type`, `unification_method`, `match_strength` or `mismatch_strength` has a
+          value outside its list
+
+        <br><b>Scope required:</b> `internal_cds_unification_rule_create`
+      operationId: addUnificationRule
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UnificationRuleRequest'
+      responses:
+        '201':
+          description: Unification rule added successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnificationRule'
+        '400':
+          $ref: '#/components/responses/InvalidRequestAnyFormat'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    get:
+      tags:
+      - Unification Rules
+      summary: Get all unification rules
+      description: |
+        The list holds the rules of the
+        organization and the rules that a parent organization shares with it. The response is a
+        plain array, without pagination.
+
+        <br><b>Scope required:</b> `internal_cds_unification_rule_view`
+      operationId: getUnificationRules
+      responses:
+        '200':
+          description: Unification rules retrieved
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UnificationRule'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /unification-rules/{ruleId}:
+    parameters:
+    - $ref: '#/components/parameters/RuleId'
+    get:
+      tags:
+      - Unification Rules
+      summary: Get unification rule by ID
+      description: |
+        <b>Scope required:</b> `internal_cds_unification_rule_view`
+      operationId: getUnificationRule
+      responses:
+        '200':
+          description: Unification rule retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnificationRule'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    patch:
+      tags:
+      - Unification Rules
+      summary: Update unification rule
+      description: |
+        Only the fields in the body change.
+        `rule_name` and `property_name` cannot be changed. Fields that are not part of the request
+        schema are rejected with a 400. A merge records the name of the rule that matched the
+        profiles, so the name stays fixed after the rule is created.
+
+        Only a rule that the organization owns can change. A rule that a parent organization
+        shares (`origin` is `SHARED`) is read-only and gives a 403.
+
+        The 400 cases of `POST /unification-rules` that concern `attribute_type`,
+        `unification_method` and the evidence strengths apply here, checked against the rule as
+        it will be after the change.
+
+        <br><b>Scope required:</b> `internal_cds_unification_rule_update`
+      operationId: patchUnificationRule
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UnificationRulePatch'
+      responses:
+        '200':
+          description: Unification rule updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnificationRule'
+        '400':
+          $ref: '#/components/responses/InvalidRequestAnyFormat'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    delete:
+      tags:
+      - Unification Rules
+      summary: Delete unification rule
+      description: |
+        Only a rule that the organization owns
+        can be deleted; a shared rule gives a 403.
+
+        The call is idempotent: deleting a rule that does not exist also returns a 204.
+
+        <br><b>Scope required:</b> `internal_cds_unification_rule_delete`
+      operationId: deleteUnificationRule
+      responses:
+        '204':
+          description: Rule deleted successfully, or it did not exist.
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /unification-rules/{ruleId}/sharing-policies:
+    parameters:
+    - $ref: '#/components/parameters/RuleId'
+    post:
+      tags:
+      - Sharing
+      summary: Share a unification rule with child organizations
+      description: |
+        <b>Scope required:</b> `internal_cds_unification_rule_share_update`
+      operationId: createUnificationRuleSharingPolicy
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SharingPolicyRequest'
+      responses:
+        '201':
+          description: Sharing policy created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharingPolicy'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    get:
+      tags:
+      - Sharing
+      summary: List the sharing policies of a unification rule
+      description: |
+        <b>Scope required:</b> `internal_cds_unification_rule_share_view`
+      operationId: listUnificationRuleSharingPolicies
+      responses:
+        '200':
+          description: Sharing policies retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharingPolicyList'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /unification-rules/{ruleId}/sharing-policies/{policyId}:
+    parameters:
+    - $ref: '#/components/parameters/RuleId'
+    - $ref: '#/components/parameters/PolicyId'
+    get:
+      tags:
+      - Sharing
+      summary: Get a sharing policy of a unification rule
+      description: |
+        <b>Scope required:</b> `internal_cds_unification_rule_share_view`
+      operationId: getUnificationRuleSharingPolicy
+      responses:
+        '200':
+          description: Sharing policy retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharingPolicy'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    put:
+      tags:
+      - Sharing
+      summary: Replace the target organizations of a sharing policy
+      description: |
+        <b>Scope required:</b> `internal_cds_unification_rule_share_update`
+      operationId: updateUnificationRuleSharingPolicy
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SharingPolicyRequest'
+      responses:
+        '200':
+          description: Sharing policy updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharingPolicy'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    delete:
+      tags:
+      - Sharing
+      summary: Delete a sharing policy of a unification rule
+      description: |
+        <b>Scope required:</b> `internal_cds_unification_rule_share_update`
+      operationId: deleteUnificationRuleSharingPolicy
+      responses:
+        '204':
+          description: Sharing policy deleted
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /consent-categories:
+    get:
+      tags:
+      - Consent Categories
+      summary: Get all consent categories
+      description: |
+        The response is a plain array.
+
+        <br><b>Scope required:</b> `internal_cds_consent_category_view`
+      operationId: getAllConsentCategories
+      responses:
+        '200':
+          description: List of consent categories
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ConsentCategory'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    post:
+      tags:
+      - Consent Categories
+      summary: Add consent category
+      description: |
+        `category_identifier` is generated by the
+        server and cannot be sent.
+
+        <br><b>Scope required:</b> `internal_cds_consent_category_create`
+      operationId: addConsentCategory
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConsentCategoryRequest'
+      responses:
+        '201':
+          description: Consent category added successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConsentCategory'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /consent-categories/{categoryId}:
+    parameters:
+    - $ref: '#/components/parameters/CategoryId'
+    get:
+      tags:
+      - Consent Categories
+      summary: Get consent category
+      description: |
+        <b>Scope required:</b> `internal_cds_consent_category_view`
+      operationId: getConsentCategory
+      responses:
+        '200':
+          description: Consent category
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConsentCategory'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    put:
+      tags:
+      - Consent Categories
+      summary: Update consent category
+      description: |
+        The body replaces the category. A
+        mandatory category (`is_mandatory` is true) is managed by the system and cannot be
+        changed.
+
+        <br><b>Scope required:</b> `internal_cds_consent_category_update`
+      operationId: updateConsentCategory
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConsentCategoryRequest'
+      responses:
+        '200':
+          description: Consent category updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConsentCategory'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    delete:
+      tags:
+      - Consent Categories
+      summary: Delete consent category
+      description: |
+        A mandatory category (`is_mandatory` is
+        true) is managed by the system and cannot be deleted.
+
+        <br><b>Scope required:</b> `internal_cds_consent_category_delete`
+      operationId: deleteConsentCategory
+      responses:
+        '204':
+          description: Consent category deleted
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /config:
+    get:
+      tags:
+      - Admin Config
+      summary: Get the configuration of the organization
+      description: |
+        <b>Scope required:</b> `internal_cds_admin_config_view`
+      operationId: getAdminConfig
+      responses:
+        '200':
+          description: The configuration.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminConfig'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    patch:
+      tags:
+      - Admin Config
+      summary: Update the configuration of the organization
+      description: |
+        Only the fields in the body change. Fields that
+        are not part of the request schema are rejected with a 400.
+
+        <br><b>Scope required:</b> `internal_cds_admin_config_update`
+      operationId: updateAdminConfig
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdminConfigUpdate'
+      responses:
+        '200':
+          description: The configuration after the update.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminConfig'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /identity-resolution/review-tasks:
+    get:
+      tags:
+      - Identity Resolution
+      summary: List the pending review tasks
+      description: |
+        A review task is a pair of profiles that
+        the identity resolution engine held back from an automatic merge. Only pending tasks are
+        listed.
+
+        <br><b>Scope required:</b> `internal_cds_identity_resolution_view`
+      operationId: getReviewTasks
+      parameters:
+      - name: page_size
+        in: query
+        required: false
+        description: |
+          Maximum number of tasks to return. Defaults to 5. A value above 200 is treated as
+          200, and 0 returns an empty page. A value that is not a whole number, or is
+          negative, gives a 400.
+        schema:
+          type: integer
+          minimum: 0
+          default: 5
+      - name: profile_id
+        in: query
+        required: false
+        description: Return only the tasks that involve this profile.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A page of review tasks.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReviewTaskList'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /identity-resolution/review-tasks/{taskId}/resolve:
+    parameters:
+    - name: taskId
+      in: path
+      required: true
+      schema:
+        type: string
+    post:
+      tags:
+      - Identity Resolution
+      summary: Approve or reject a review task
+      description: |
+        Approving merges the two profiles.
+        Rejecting keeps them apart.
+
+        <br><b>Scope required:</b> `internal_cds_identity_resolution_update`
+      operationId: resolveReviewTask
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReviewResolveRequest'
+      responses:
+        '200':
+          description: The task was resolved.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: Review task 5af4235d approved
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          description: Conflict. The task is already resolved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /organizations/sync:
+    post:
+      tags:
+      - Organizations
+      summary: Start a sync of the organization tree
+      description: |
+        Only the root organization can start a sync. The sync runs in the background. Use
+        GET /organizations/sync-status to get its state.
+
+        <br><b>Scope required:</b> `internal_cds_organization_update`
+      operationId: startOrganizationSync
+      responses:
+        '202':
+          description: Sync started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationSyncStatus'
+              example:
+                state: SYNCING
+                started_at: '2026-10-12T06:46:18.088906Z'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          description: Conflict. A sync of the organization tree is running (`CDS-17012`).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /organizations/sync-status:
+    get:
+      tags:
+      - Organizations
+      summary: Get the state of the organization sync
+      description: |
+        <b>Scope required:</b> `internal_cds_organization_view`
+      operationId: getOrganizationSyncStatus
+      responses:
+        '200':
+          description: Sync state retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationSyncStatus'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /organizations/access-policies:
+    post:
+      tags:
+      - Organizations
+      summary: Select the child organizations that can use the service
+      description: |
+        Only the root organization can manage the organization access. It has a maximum of one
+        policy. The organization tree must be synced first.
+
+        <br><b>Scope required:</b> `internal_cds_organization_update`
+      operationId: createOrganizationAccessPolicy
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SharingPolicyRequest'
+      responses:
+        '201':
+          description: Organization access policy created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationAccessPolicy'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    get:
+      tags:
+      - Organizations
+      summary: List the organization access policies
+      description: |
+        <b>Scope required:</b> `internal_cds_organization_view`
+      operationId: listOrganizationAccessPolicies
+      responses:
+        '200':
+          description: Organization access policies retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationAccessPolicyList'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /organizations/access-policies/{orgPolicyId}:
+    parameters:
+    - name: orgPolicyId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    get:
+      tags:
+      - Organizations
+      summary: Get the organization access policy
+      description: |
+        <b>Scope required:</b> `internal_cds_organization_view`
+      operationId: getOrganizationAccessPolicy
+      responses:
+        '200':
+          description: Organization access policy retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationAccessPolicy'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    put:
+      tags:
+      - Organizations
+      summary: Replace the selected child organizations
+      description: |
+        An update cannot change child_orgs.mode. To change the mode, delete the policy and create a new one.
+
+        <br><b>Scope required:</b> `internal_cds_organization_update`
+      operationId: updateOrganizationAccessPolicy
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SharingPolicyRequest'
+      responses:
+        '200':
+          description: Organization access policy updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrganizationAccessPolicy'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+    delete:
+      tags:
+      - Organizations
+      summary: Delete the organization access policy
+      description: |
+        After the delete, no child organization can use the service.
+
+        <br><b>Scope required:</b> `internal_cds_organization_update`
+      operationId: deleteOrganizationAccessPolicy
+      responses:
+        '204':
+          description: Organization access policy deleted
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+components:
+  parameters:
+    ProfileId:
+      name: profileId
+      in: path
+      required: true
+      schema:
+        type: string
+    CategoryId:
+      name: categoryId
+      in: path
+      required: true
+      schema:
+        type: string
+    RuleId:
+      name: ruleId
+      in: path
+      required: true
+      schema:
+        type: string
+    Scope:
+      name: scope
+      in: path
+      required: true
+      schema:
+        type: string
+        enum:
+        - identity_attributes
+        - traits
+        - application_data
+    AttributeId:
+      name: attrID
+      in: path
+      required: true
+      schema:
+        type: string
+    PolicyId:
+      name: policyId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+  responses:
+    InvalidRequestAnyFormat:
+      description: |
+        Bad Request. Invalid request, or CDS is not enabled for the organization. The body is an
+        `Error` or a `LegacyError`, depending on which check refused the request.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AnyError'
+    InternalServerError:
+      description: Internal Server Error. The server failed to process the request.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ServerError'
+    ProfileNotFound:
+      description: Not Found. The profile does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: |
+        Bad Request. Invalid request, CDS is not enabled for the organization, or, on the
+        organization endpoints, a child organization called an endpoint that only a primary
+        organization can use.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Unauthorized. The credentials are missing or not valid for the organization of the
+        path.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Forbidden:
+      description: |
+        Forbidden. The token does not have the scope the operation requires, a child
+        organization tried to write, or the resource is shared from a parent organization and
+        is read-only.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Not Found. The resource, the policy, or the organization does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Conflict:
+      description: Conflict. The organization already has a policy for the resource.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Pagination:
+      type: object
+      required:
+      - count
+      - page_size
+      properties:
+        count:
+          type: integer
+          description: Number of items in this page.
+        page_size:
+          type: integer
+        next_cursor:
+          type: string
+          description: Cursor for the next page. Omitted on the last page.
+        previous_cursor:
+          type: string
+          description: Cursor for the previous page. Omitted on the first page.
+    ProfileListAPIResponse:
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        profiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProfileListResponse'
+    ProfileListResponse:
+      type: object
+      required:
+      - profile_id
+      - meta
+      description: |
+        A profile as listed by `GET /profiles`. Unlike `ProfileResponse` it has no
+        `anonymous_profile_tracker` or `merged_to`. `match_score` and `score_breakdown`
+        appear only on a `fuzzyFilter` search.
+      properties:
+        profile_id:
+          type: string
+          example: e8bf7337-4049-4d92-9545-711894ab2af3
+        user_id:
+          type: string
+          description: User the profile is linked to. Omitted for anonymous profiles.
+          example: 40497337-e8bf-4d92-9545-711894ab2af3
+        meta:
+          $ref: '#/components/schemas/ProfileMeta'
+        identity_attributes:
+          type: object
+          additionalProperties: true
+          example:
+            email: random@work.com
+        traits:
+          type: object
+          additionalProperties: true
+          example:
+            shopper: 'true'
+        application_data:
+          type: object
+          description: Application specific data, keyed by application identifier.
+          additionalProperties:
+            type: object
+            additionalProperties: true
+          example:
+            app-1:
+              theme: dark
+        merged_from:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProfileReference'
+        match_score:
+          type: number
+          format: double
+          description: |
+            How alike the profile and the supplied values were judged to be, between 0 and 1.
+            It is the score of the highest-priority rule that agreed, not a combination of
+            every rule, so a rule in the breakdown can score higher than this. It is not
+            lowered when another rule disagrees: that decides whether profiles merge
+            unattended, not how alike they are.
+          example: 0.9429
+        score_breakdown:
+          type: object
+          description: Each rule that had something to compare, and what it scored.
+          additionalProperties:
+            type: number
+            format: double
+          example:
+            name: 0.9429
+            city: 1.0
+    ProfileResponse:
+      type: object
+      required:
+      - profile_id
+      - meta
+      properties:
+        profile_id:
+          type: string
+          example: e8bf7337-4049-4d92-9545-711894ab2af3
+        user_id:
+          type: string
+          description: User the profile is linked to. Omitted for anonymous profiles.
+          example: 40497337-e8bf-4d92-9545-711894ab2af3
+        anonymous_profile_tracker:
+          type: string
+          description: Identifier tracking an anonymous profile. Omitted when not set.
+        meta:
+          $ref: '#/components/schemas/ProfileMeta'
+        identity_attributes:
+          type: object
+          additionalProperties: true
+          example:
+            email: random@work.com
+        traits:
+          type: object
+          additionalProperties: true
+          example:
+            shopper: 'true'
+        application_data:
+          type: object
+          description: Application specific data, keyed by application identifier.
+          additionalProperties:
+            type: object
+            additionalProperties: true
+          example:
+            app-1:
+              theme: dark
+        merged_to:
+          $ref: '#/components/schemas/ProfileReference'
+        merged_from:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProfileReference'
+    ProfileMeta:
+      type: object
+      required:
+      - created_at
+      - updated_at
+      - location
+      properties:
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        location:
+          type: string
+    ProfileReference:
+      type: object
+      description: Reference to another profile involved in a merge.
+      properties:
+        profile_id:
+          type: string
+        reason:
+          type: string
+          description: Reason the profiles were merged, for example the unification rule name.
+    ProfileRequest:
+      type: object
+      description: Fields that are not listed here are rejected.
+      properties:
+        user_id:
+          type: string
+          description: User to link the profile to. Leave out for an anonymous profile.
+          example: 40497337-e8bf-4d92-9545-711894ab2af3
+        identity_attributes:
+          type: object
+          additionalProperties: true
+          example:
+            email: random@work.com
+        traits:
+          type: object
+          additionalProperties: true
+          example:
+            shopper: 'true'
+        application_data:
+          type: object
+          description: Application specific data, keyed by application identifier.
+          additionalProperties:
+            type: object
+            additionalProperties: true
+          example:
+            app-1:
+              theme: dark
+    ProfilePatchRequest:
+      type: object
+      description: |
+        The parts of the profile to change. Each of the three objects is deep merged into the
+        existing value.
+      properties:
+        identity_attributes:
+          type: object
+          additionalProperties: true
+        traits:
+          type: object
+          additionalProperties: true
+        application_data:
+          type: object
+          additionalProperties:
+            type: object
+            additionalProperties: true
+      example:
+        traits:
+          city: Colombo
+    ConsentRecord:
+      type: object
+      properties:
+        category_identifier:
+          type: string
+          description: The `category_identifier` of the consent category.
+        is_consented:
+          type: boolean
+        consented_at:
+          type: string
+          format: date-time
+    ProfileLinkRequest:
+      type: object
+      properties:
+        profile_id:
+          type: string
+          example: e8bf7337-4049-4d92-9545-711894ab2af3
+        user_id:
+          type: string
+          example: 40497337-e8bf-4d92-9545-711894ab2af3
+      required:
+      - profile_id
+      - user_id
+    ProfileLinkResponse:
+      type: object
+      required:
+      - profile_id
+      - user_id
+      properties:
+        profile_id:
+          type: string
+          example: e8bf7337-4049-4d92-9545-711894ab2af3
+        user_id:
+          type: string
+          example: 40497337-e8bf-4d92-9545-711894ab2af3
+    UnificationRuleRequest:
+      type: object
+      description: Fields that are not listed here are rejected.
+      required:
+      - rule_name
+      - property_name
+      - priority
+      - is_active
+      properties:
+        rule_name:
+          type: string
+          description: Descriptive name for the rule
+          example: email based
+        property_name:
+          type: string
+          description: |
+            Path of the profile attribute to unify on. The attribute has to be in the profile
+            schema and cannot be complex. `user_id`, `identity_attributes.user_id` and
+            `application_data.*` attributes are not allowed.
+          example: identity_attributes.email
+        priority:
+          type: integer
+          description: Priority of the rule (lower number = higher priority)
+          example: 1
+        is_active:
+          type: boolean
+          description: Whether the rule is currently active
+          example: true
+        attribute_type:
+          $ref: '#/components/schemas/UnificationAttributeType'
+        unification_method:
+          $ref: '#/components/schemas/UnificationMethod'
+        match_strength:
+          $ref: '#/components/schemas/MatchStrength'
+        mismatch_strength:
+          $ref: '#/components/schemas/MismatchStrength'
+    UnificationRule:
+      type: object
+      required:
+      - rule_id
+      - rule_name
+      - property_name
+      - priority
+      - is_active
+      - attribute_type
+      - unification_method
+      properties:
+        rule_id:
+          type: string
+          format: uuid
+          readOnly: true
+          description: Unique identifier for the resolution rule
+          example: 5af4235d-b95e-4b5b-9429-c9021e653361
+        rule_name:
+          type: string
+          description: Descriptive name for the rule
+          example: email based
+        property_name:
+          type: string
+          description: Path of the profile attribute the rule unifies on.
+          example: identity_attributes.email
+        priority:
+          type: integer
+          description: Priority of the rule (lower number = higher priority)
+          example: 1
+        is_active:
+          type: boolean
+          description: Whether the rule is currently active
+          example: true
+        attribute_type:
+          $ref: '#/components/schemas/UnificationAttributeType'
+        unification_method:
+          $ref: '#/components/schemas/UnificationMethod'
+        match_strength:
+          $ref: '#/components/schemas/MatchStrength'
+        mismatch_strength:
+          $ref: '#/components/schemas/MismatchStrength'
+        origin:
+          type: string
+          readOnly: true
+          enum:
+          - OWNED
+          - SHARED
+          description: SHARED for a rule that a parent organization shares with this organization.
+    UnificationRulePatch:
+      type: object
+      description: |
+        Fields that are not listed here are rejected. `rule_name` and `property_name` cannot be
+        changed.
+      properties:
+        priority:
+          type: integer
+          description: Priority of the rule (lower number = higher priority)
+          example: 1
+        is_active:
+          type: boolean
+          description: Whether the rule is currently active
+          example: true
+        attribute_type:
+          $ref: '#/components/schemas/UnificationAttributeType'
+        unification_method:
+          $ref: '#/components/schemas/UnificationMethod'
+        match_strength:
+          $ref: '#/components/schemas/MatchStrength'
+        mismatch_strength:
+          $ref: '#/components/schemas/MismatchStrength'
+    UnificationAttributeType:
+      type: string
+      description: |
+        What kind of value the attribute holds. Determines which comparison is applied
+        and which blocking keys are indexed.
+
+        Optional. Omitted, it defaults to `PRIMITIVE_EXACT`, which is how a rule written
+        before typed matching is read. It is **required when `unification_method` is
+        `fuzzy`**, because it selects how two values are compared and there is nothing
+        sensible to assume.
+
+        It still shapes behaviour under `deterministic`: `DATE` and `UNIQUE_ID` are
+        normalized before comparing, so a date written two ways still matches, and the
+        type seeds the evidence strengths.
+      enum:
+      - PRIMITIVE_EXACT
+      - FUZZY_STRING
+      - NAME
+      - EMAIL
+      - PHONE
+      - LOCATION
+      - DATE
+      - UNIQUE_ID
+      example: EMAIL
+    UnificationMethod:
+      type: string
+      description: |
+        Whether this rule matches on exact equality or tolerates variation. Rules of
+        both kinds are evaluated side by side within a single comparison. Only
+        FUZZY_STRING, NAME, EMAIL, PHONE and LOCATION support `fuzzy`.
+
+        Optional. Omitted, it defaults to `deterministic`. `fuzzy` is refused while the server
+        has `identity_resolution.fuzzy_matching_enabled` turned off.
+      enum:
+      - deterministic
+      - fuzzy
+      example: deterministic
+    MatchStrength:
+      type: string
+      description: |
+        How much an agreement on this attribute supports a merge. HIGH means the
+        attribute identifies a person well enough to merge on it alone; MEDIUM and LOW
+        require a second agreeing rule.
+
+        Present only on a server that sets
+        `identity_resolution.allow_evidence_strength_override`, which is off by default.
+        Elsewhere sending it is rejected with a 400 and it is never returned, because the
+        value is derived from `attribute_type` and no caller can change it.
+
+        Where the setting is on, an absent field means the rule inherits the strength
+        its `attribute_type` implies; a present one is a deliberate override.
+      enum:
+      - HIGH
+      - MEDIUM
+      - LOW
+      example: HIGH
+    MismatchStrength:
+      type: string
+      description: |
+        How much a disagreement on this attribute opposes a merge. HIGH makes the
+        attribute discriminating: two present, differing values veto an automatic merge
+        whatever else agrees. Independent of `match_strength`, because the two
+        directions rarely carry equal weight — matching emails strongly imply the same
+        person while differing emails imply little, and a date of birth is the reverse.
+
+        Gated and reported exactly as `match_strength`.
+      enum:
+      - HIGH
+      - MEDIUM
+      - LOW
+      example: LOW
+    UnificationOptionsResponse:
+      type: object
+      properties:
+        attribute_types:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                $ref: '#/components/schemas/UnificationAttributeType'
+              label:
+                type: string
+                example: Email Address
+              allowed_methods:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    value:
+                      $ref: '#/components/schemas/UnificationMethod'
+                    label:
+                      type: string
+                      example: Deterministic (Exact)
+    ConsentAttribute:
+      type: object
+      required:
+      - attribute_name
+      properties:
+        attribute_name:
+          type: string
+          description: Name of the profile attribute the category covers.
+          example: traits.age
+        application_identifier:
+          type: string
+          description: Application the attribute belongs to. Only for `application_data` attributes.
+          example: crm_app
+        scope:
+          type: string
+          readOnly: true
+          description: Scope of the attribute. Derived from the profile schema, never sent.
+        attribute_id:
+          type: string
+          readOnly: true
+          description: Schema attribute ID. Derived from the profile schema, never sent.
+    ConsentCategoryRequest:
+      type: object
+      required:
+      - category_name
+      - purpose
+      properties:
+        category_name:
+          type: string
+          example: User behavior analytics
+        purpose:
+          type: string
+          enum:
+          - profiling
+          - personalization
+          - destination
+        destinations:
+          type: array
+          items:
+            type: string
+        attributes:
+          type: array
+          description: The profile attributes the category covers.
+          items:
+            $ref: '#/components/schemas/ConsentAttribute'
+    ConsentCategory:
+      type: object
+      required:
+      - category_name
+      - category_identifier
+      - purpose
+      - is_mandatory
+      properties:
+        category_name:
+          type: string
+          example: User behavior analytics
+        category_identifier:
+          type: string
+          format: uuid
+          readOnly: true
+          description: Generated by the server.
+          example: 7fa06d1e-688f-481b-8263-29c1f5ce1493
+        purpose:
+          type: string
+          enum:
+          - profiling
+          - personalization
+          - destination
+        destinations:
+          type: array
+          items:
+            type: string
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConsentAttribute'
+        is_mandatory:
+          type: boolean
+          readOnly: true
+          description: True for a category that the system manages. It cannot be changed or deleted.
+    ProfileSchemaAttribute:
+      type: object
+      required:
+      - attribute_name
+      - value_type
+      - merge_strategy
+      description: Fields that are not listed here are rejected when attributes are added.
+      properties:
+        attribute_id:
+          type: string
+          description: Generated when omitted.
+        attribute_name:
+          type: string
+          description: Name of the attribute, for example `traits.city`.
+          example: traits.city
+        scope:
+          type: string
+          enum:
+          - identity_attributes
+          - traits
+          - application_data
+        display_name:
+          type: string
+        value_type:
+          type: string
+          enum:
+          - string
+          - integer
+          - decimal
+          - boolean
+          - date_time
+          - date
+          - complex
+          - epoch
+        merge_strategy:
+          type: string
+          description: How the value is resolved when two profiles merge.
+          enum:
+          - overwrite
+          - combine
+        mutability:
+          type: string
+          description: Defaults to `readWrite`.
+          enum:
+          - readWrite
+          - readOnly
+          - writeOnly
+          - immutable
+          - writeOnce
+        application_identifier:
+          type: string
+          description: Application the attribute belongs to. Only for `application_data`.
+        multi_valued:
+          type: boolean
+          description: True when the value is an array of `value_type`.
+        canonical_values:
+          type: array
+          description: The values the attribute may take.
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+              label:
+                type: string
+        sub_attributes:
+          type: array
+          description: The attributes of a `complex` attribute.
+          items:
+            type: object
+            required:
+            - attribute_id
+            - attribute_name
+            properties:
+              attribute_id:
+                type: string
+              attribute_name:
+                type: string
+        scim_dialect:
+          type: string
+        origin:
+          type: string
+          readOnly: true
+          enum:
+          - OWNED
+          - SHARED
+          - INHERITED
+          description: |
+            Set only on reads of the effective schema. SHARED for an attribute that a parent
+            organization shares, INHERITED for an identity attribute that the organization
+            inherits.
+    ProfileSchema:
+      type: object
+      description: The effective profile schema of the organization.
+      properties:
+        profile_id:
+          type: object
+          additionalProperties:
+            type: string
+          description: Core definition of `profile_id`, for example its value type and mutability.
+          example:
+            value_type: string
+            mutability: immutable
+        user_id:
+          type: object
+          additionalProperties:
+            type: string
+          example:
+            value_type: string
+            mutability: writeOnce
+        meta:
+          type: object
+          description: Core definitions of the `meta` fields, keyed by field name.
+          additionalProperties:
+            type: object
+            additionalProperties:
+              type: string
+        identity_attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProfileSchemaAttribute'
+        traits:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProfileSchemaAttribute'
+        application_data:
+          type: object
+          description: Attributes of each application, keyed by application identifier.
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/ProfileSchemaAttribute'
+    AdminConfig:
+      type: object
+      required:
+      - cds_enabled
+      - auto_merge_enabled
+      - auto_merge_threshold
+      - manual_review_threshold
+      - deterministic_match_decisive
+      properties:
+        cds_enabled:
+          type: boolean
+        system_applications:
+          type: array
+          description: Applications whose reads are not filtered by consent.
+          items:
+            type: string
+        auto_merge_enabled:
+          type: boolean
+        auto_merge_threshold:
+          type: number
+          format: double
+          description: Lowest match score that merges two profiles automatically.
+        manual_review_threshold:
+          type: number
+          format: double
+          description: Lowest match score that raises a review task.
+        deterministic_match_decisive:
+          type: boolean
+          description: |
+            When true, a pair that agrees on any deterministic rule merges without the other
+            rules being consulted. When false, the other rules may object and send the pair to
+            review.
+        cors_allowed_origins:
+          type: array
+          description: Browser origins allowed to call the organization's endpoints. When empty, the deployment-wide
+            list applies.
+          items:
+            type: string
+        temporary_profile_retention_days:
+          type: integer
+          format: int32
+          minimum: 1
+          description: Number of days a temporary profile may go without an update before it is deleted,
+            together with its cookies. An organization that has not set it gets the default of 90 days.
+            Profiles that have a user_id, or that are merged with another profile, are never deleted by
+            this setting.
+        temporary_profile_cleanup_interval_days:
+          type: integer
+          format: int32
+          minimum: 1
+          description: Days between two cleanups of the temporary profiles of the organization. The default
+            is 30.
+    AdminConfigUpdate:
+      type: object
+      description: Fields that are not listed here are rejected. Only the fields that are sent change.
+      properties:
+        cds_enabled:
+          type: boolean
+        system_applications:
+          type: array
+          items:
+            type: string
+        auto_merge_enabled:
+          type: boolean
+        auto_merge_threshold:
+          type: number
+          format: double
+        manual_review_threshold:
+          type: number
+          format: double
+        deterministic_match_decisive:
+          type: boolean
+        cors_allowed_origins:
+          type: array
+          items:
+            type: string
+        temporary_profile_retention_days:
+          type: integer
+          format: int32
+          minimum: 1
+          description: Days a temporary profile may go without an update before it is deleted. Values
+            below 1, or above 2147483647, are rejected.
+        temporary_profile_cleanup_interval_days:
+          type: integer
+          format: int32
+          minimum: 1
+          description: Days between two cleanups of the temporary profiles of the organization. Values
+            below 1, or above 2147483647, are rejected.
+    ReviewTask:
+      type: object
+      required:
+      - id
+      - incoming_profile_id
+      - candidate_profile_id
+      - status
+      - created_at
+      properties:
+        id:
+          type: string
+        incoming_profile_id:
+          type: string
+        candidate_profile_id:
+          type: string
+        status:
+          type: string
+          enum:
+          - PENDING
+          - APPROVED
+          - REJECTED
+          - CANCELLED
+        score_breakdown:
+          type: object
+          description: What each rule that had something to compare scored.
+          additionalProperties:
+            type: number
+            format: double
+        explanation:
+          $ref: '#/components/schemas/MatchExplanation'
+        created_at:
+          type: string
+        resolved_at:
+          type: string
+        resolved_by:
+          type: string
+        notes:
+          type: string
+    MatchExplanation:
+      type: object
+      description: Absent on a task raised before explanations were recorded.
+      properties:
+        rules:
+          type: array
+          description: What each rule found for the pair.
+          items:
+            type: object
+            properties:
+              rule_id:
+                type: string
+              rule_name:
+                type: string
+              property_name:
+                type: string
+              attribute_type:
+                type: string
+              unification_method:
+                type: string
+              priority:
+                type: integer
+              match_strength:
+                type: string
+              mismatch_strength:
+                type: string
+              score:
+                type: number
+                format: double
+                description: Absent when either profile lacked the value.
+              verdict:
+                type: string
+                description: |
+                  The rule's reading of the pair. AGREE: both values present and similar enough to
+                  support the match. DISAGREE: both present and clearly different. INCONCLUSIVE:
+                  both present, with a similarity that neither supports nor opposes the match.
+                  UNKNOWN: at least one profile has no value.
+                enum:
+                - AGREE
+                - INCONCLUSIVE
+                - DISAGREE
+                - UNKNOWN
+              primary:
+                type: boolean
+                description: True for the highest-priority rule that agreed.
+        reasons:
+          type: array
+          description: Why the pair was held for review.
+          items:
+            type: object
+            properties:
+              code:
+                type: string
+                description: |
+                  For example `BELOW_AUTO_MERGE_THRESHOLD`, `DISCRIMINATING_MISMATCH`,
+                  `CONFLICTING_EVIDENCE`, `WEAK_SOLE_EVIDENCE`, `COMMON_VALUE`,
+                  `AUTO_MERGE_DISABLED`, `REJECTION_RECONSIDERED`, `AUTO_MERGE_FAILED` or
+                  `MERGED_WITH_ANOTHER_PROFILE`.
+              rule_ids:
+                type: array
+                items:
+                  type: string
+    ReviewTaskList:
+      type: object
+      required:
+      - pagination
+      - tasks
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        tasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReviewTask'
+    ReviewResolveRequest:
+      type: object
+      required:
+      - decision
+      properties:
+        decision:
+          type: string
+          enum:
+          - APPROVED
+          - REJECTED
+        notes:
+          type: string
+    Error:
+      type: object
+      description: |
+        The error body of most client errors (4xx).
+
+        The service writes client errors in two shapes. This one, with `code`, `message` and
+        `description`, is used by most endpoints. Some checks use `LegacyError` instead; the
+        operations that can return either say so.
+      properties:
+        code:
+          type: string
+          description: Error code, prefixed `CDS-`.
+          example: CDS-00000
+        message:
+          type: string
+          example: Some Error Message
+        description:
+          type: string
+          example: Some Error Description
+    LegacyError:
+      type: object
+      description: |
+        The other shape of a client error, with the keys prefixed `error_`. It is written by the
+        validation of unification rules, by adding profile schema attributes, and by a few
+        other checks.
+      properties:
+        error_code:
+          type: string
+          example: CDS-00000
+        error_message:
+          type: string
+          example: Some Error Message
+        error_description:
+          type: string
+          example: Some Error Description
+    AnyError:
+      description: An `Error` or a `LegacyError`.
+      oneOf:
+      - $ref: '#/components/schemas/Error'
+      - $ref: '#/components/schemas/LegacyError'
+    ServerError:
+      type: object
+      description: The body of a server error (500). It never says what failed.
+      properties:
+        error:
+          type: string
+          example: Internal server error
+    ChildOrg:
+      type: object
+      required:
+      - org_id
+      - reach
+      properties:
+        org_id:
+          type: string
+          description: A direct child of the initiating organization. The organization must be active.
+          example: 9b2e4c71-5d8a-4f3e-a6b0-2c7d1e8f4a95
+        reach:
+          type: string
+          enum:
+          - org
+          - subtree
+          description: 'org: the organization only. subtree: the organization and all current and future
+            organizations below it.'
+    ChildOrgs:
+      type: object
+      required:
+      - mode
+      properties:
+        mode:
+          type: string
+          enum:
+          - all
+          - selected
+          description: 'all: all current and future organizations below the initiating organization. selected:
+            the organizations in orgs.'
+        orgs:
+          type: array
+          description: Required with mode selected. Must be empty with mode all. Each organization once.
+          items:
+            $ref: '#/components/schemas/ChildOrg'
+    SharingPolicyRequest:
+      type: object
+      additionalProperties: false
+      required:
+      - child_orgs
+      properties:
+        child_orgs:
+          $ref: '#/components/schemas/ChildOrgs'
+      example:
+        child_orgs:
+          mode: selected
+          orgs:
+          - org_id: 9b2e4c71-5d8a-4f3e-a6b0-2c7d1e8f4a95
+            reach: subtree
+    SharingPolicy:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        resource_type:
+          type: string
+          enum:
+          - SCHEMA_ATTRIBUTE
+          - UNIFICATION_RULE
+        resource_id:
+          type: string
+        owning_org_id:
+          type: string
+        initiating_org_id:
+          type: string
+        child_orgs:
+          $ref: '#/components/schemas/ChildOrgs'
+    SharingPolicyList:
+      type: object
+      properties:
+        total_results:
+          type: integer
+        policies:
+          type: array
+          items:
+            $ref: '#/components/schemas/SharingPolicy'
+    OrganizationAccessPolicy:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        owning_org_id:
+          type: string
+        initiating_org_id:
+          type: string
+        child_orgs:
+          $ref: '#/components/schemas/ChildOrgs'
+    OrganizationAccessPolicyList:
+      type: object
+      properties:
+        total_results:
+          type: integer
+        policies:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrganizationAccessPolicy'
+    OrganizationSyncStatus:
+      type: object
+      properties:
+        state:
+          type: string
+          enum:
+          - NOT_SYNCED
+          - SYNCING
+          - SYNCED
+          - FAILED
+        started_at:
+          type: string
+          format: date-time
+          description: The start of the last sync.
+        finished_at:
+          type: string
+          format: date-time
+          description: The end of the last sync. Not set while a sync runs.
+        last_synced_at:
+          type: string
+          format: date-time
+          description: The end of the last sync that completed. A later failed sync keeps it.
+        error:
+          type: string
+          description: The error of a failed sync.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: |
+        An access token issued for the organization of the path, with the `iam-cds` audience. Either a
+        JWT or an opaque token. It must carry the scope the operation names.

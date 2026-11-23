@@ -1,4 +1,4 @@
-{% if product == "asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 # Unify anonymous and registered profiles
 
@@ -45,7 +45,7 @@ No unification rule is needed as the temporary and permanent profiles are matche
 === "Sample request"
 
     ```bash
-    curl -X POST '{{content.sdkconfig.baseUrl}}/cds/api/v1/profiles' \
+    curl -X POST '{{content.cds.baseUrl}}/cds/api/v1/profiles' \
     -H 'Authorization: Bearer <access_token>' \
     -H 'Content-Type: application/json' \
     -d '{}'
@@ -77,7 +77,7 @@ Where you write the value depends on the attribute's **scope**, and you must tar
 === "Trait (shared across apps)"
 
     ```bash
-    curl -X PATCH '{{content.sdkconfig.baseUrl}}/cds/api/v1/profiles/<profile_id>' \
+    curl -X PATCH '{{content.cds.baseUrl}}/cds/api/v1/profiles/<profile_id>' \
     -H 'Authorization: Bearer <access_token>' \
     -H 'Content-Type: application/json' \
     -d '{
@@ -90,7 +90,7 @@ Where you write the value depends on the attribute's **scope**, and you must tar
 === "Application data (per application)"
 
     ```bash
-    curl -X PATCH '{{content.sdkconfig.baseUrl}}/cds/api/v1/profiles/<profile_id>' \
+    curl -X PATCH '{{content.cds.baseUrl}}/cds/api/v1/profiles/<profile_id>' \
     -H 'Authorization: Bearer <access_token>' \
     -H 'Content-Type: application/json' \
     -d '{

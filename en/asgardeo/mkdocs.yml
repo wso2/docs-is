@@ -38,6 +38,8 @@ extra:
   content:
     sdkconfig:
       baseUrl: "https://api.asgardeo.io/t/<your-organization-name>"
+    cds:
+      baseUrl: "https://api.asgardeo.io/t/<your-organization-name>"
     oid4vci_reference_path: "references/oid4vci"
     application_management_api_path: "apis/application-management"
     org_resources_shared: "Applications, Roles (with shared apps), Users"

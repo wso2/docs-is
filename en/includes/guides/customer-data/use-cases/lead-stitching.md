@@ -1,4 +1,4 @@
-{% if product == "asgardeo" %}
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.2.0") %}
 
 # Stitch user profiles across websites
 
@@ -47,7 +47,7 @@ Make the Customer Data Service calls from each application's backend. Every touc
 === "Sample request"
 
     ```bash
-    curl -X POST '{{content.sdkconfig.baseUrl}}/cds/api/v1/profiles' \
+    curl -X POST '{{content.cds.baseUrl}}/cds/api/v1/profiles' \
     -H 'Authorization: Bearer <access_token>' \
     -H 'Content-Type: application/json' \
     -d '{}'
@@ -58,7 +58,7 @@ Make the Customer Data Service calls from each application's backend. Every touc
 === "Sample request"
 
     ```bash
-    curl -X PATCH '{{content.sdkconfig.baseUrl}}/cds/api/v1/profiles/<profile_id>' \
+    curl -X PATCH '{{content.cds.baseUrl}}/cds/api/v1/profiles/<profile_id>' \
     -H 'Authorization: Bearer <access_token>' \
     -H 'Content-Type: application/json' \
     -d '{
