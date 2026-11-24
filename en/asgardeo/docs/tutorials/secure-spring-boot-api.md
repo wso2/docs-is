@@ -40,9 +40,9 @@ First, let's register your issue management REST API with WSO2 Identity Platform
 
 1. Go to your organization from the [WSO2 Identity Platform Console](https://console.asgardeo.io/).
 
-2. [Register your API in WSO2 Identity Platform]({{base_path}}/guides/api-authorization/#register-an-api-resource).
+2. [Register your API in WSO2 Identity Platform]({{base_path}}/guides/authorization/api-authorization/api-authorization/#register-a-business-api).
 
-3. [Define permissions for the API resource]({{base_path}}/guides/api-authorization/#define-permissions-for-an-api-resource) with the following permissions.
+3. [Define permissions for the API resource]({{base_path}}/guides/authorization/api-authorization/api-authorization/#register-a-business-api) with the following permissions.
 
     - <code>issues:view</code>
     - <code>issues:create</code>
@@ -55,15 +55,15 @@ You need to register your application in WSO2 Identity Platform and connect your
 
 1. [Create a standard-based application in WSO2 Identity Platform]({{base_path}}/guides/applications/register-standard-based-app/) by selecting the grant type as `Code` and the access token type as `JWT`.
 
-2. [Connect the API resources]({{base_path}}/guides/api-authorization/#authorize-the-api-resources-for-an-app) with the application that you created in Step 1 above.
+2. [Connect the API resources]({{base_path}}/guides/authorization/api-authorization/api-authorization/#authorize-apps-to-consume-api-resources) with the application that you created in Step 1 above.
 
 ### Step 2.3 Create roles in your application
 
 Let's define the various roles of your application and give each role appropriate permissions.
 
-To do so, [create roles and associate to the application]({{base_path}}/guides/api-authorization/#associate-roles-to-the-application) with the following details:
+To do so, [create roles and associate to the application]({{base_path}}/guides/authorization/api-authorization/api-authorization/#create-roles-and-assign-users) with the following details:
 
-- Reporter - Assign `create:isses` and `view:issues` permissions.
+- Reporter - Assign `issues:create` and `issues:view` permissions.
 - Fix-Verifier - Assign all permissions.
 
 ### Step 2.4 Assign roles to user groups in WSO2 Identity Platform
@@ -74,7 +74,7 @@ To do so,
 
 1. [Create user groups in WSO2 Identity Platform]({{base_path}}/guides/users/manage-groups/). For this scenario, let's create two groups and name them `Reporter` and `Fix-Verifier`.
 
-2. [Assign application roles]({{base_path}}/guides/api-authorization/#assign-roles-to-groups) created in step 2.3 above to the relevant groups.
+2. [Assign application roles]({{base_path}}/guides/users/manage-groups/#assign-groups-to-application-roles) created in step 2.3 above to the relevant groups.
 
 ### Step 2.5 Assign users to groups in WSO2 Identity Platform
 
@@ -82,13 +82,13 @@ Now that you have assigned the application roles to the relevant user groups in 
 
 To do so,
 
-1. [Onboard users to WSO2 Identity Platform]({{base_path}}/guides/users/manage-users/#onboard-a-user).
+1. [Onboard users to WSO2 Identity Platform]({{base_path}}/guides/users/manage-users/#onboard-users).
 
 2. [Assign users to relevant groups]({{base_path}}/guides/users/manage-users/#assign-groups).
 
 ## Step 3: Configure Spring Security
 
-In your Spring project, do the following configurations so that it is correctly integrated with WSO2 Identity Platform.:
+In your Spring project, do the following configurations so that it is correctly integrated with WSO2 Identity Platform:
 
 1. Create a security configuration file and include the following JWT decoder to validate WSO2 Identity Platform issued tokens.
 
@@ -146,7 +146,7 @@ Let's try to access the API resources of the sample application as a `Reporter` 
     --data-urlencode 'redirect_uri={redirect_uri}'
     ```
 
-4. Observe the scopes calim in the access token and verify that the `Reporter` user has access to only `issues:view` and `issues:create` scopes.
+4. Observe the scopes claim in the access token and verify that the `Reporter` user has access to only `issues:view` and `issues:create` scopes.
 
 5. Repeat steps 1-4 for a `Fix-Verifier` user and observe that this user has access to all scopes.
 
