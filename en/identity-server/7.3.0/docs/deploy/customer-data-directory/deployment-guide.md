@@ -72,15 +72,19 @@ The two are separate installations that meet only over HTTPS.
     ```toml
     [customer_data_service]
     enable = true
-    server_url = "https://cdd.example.com:8900"
+    server_url = "https://cdd.internal.example.com:8900"
     admin_username = "cdd-sync"
     admin_password = "$env{CDD_SYNC_PASSWORD}"
+
+    [console.extensions]
+    cds_host = "https://cdd.example.com"
     ```
 
     | Property | Description |
     |---|---|
     | `enable` | Switches the integration on. Without the block, nothing of the integration is active. |
-    | `server_url` | Where {{ product_name }} and the Console reach CDD. |
+    | `server_url` | Where {{ product_name }} reaches CDD. In production, a private address. See [Protect the sync endpoints]({{base_path}}/deploy/customer-data-directory/security-guide/#protect-the-sync-endpoints). |
+    | `cds_host` | Where the Console reaches CDD from the browser: the public address of CDD. On one host, the same as `server_url`. |
     | `admin_username`, `admin_password` | The sync credential {{ product_name }} presents to CDD. It is a shared secret between the two, not a user account. |
 
     Keep the password out of the file. See [Set passwords using environment variables]({{base_path}}/deploy/security/set-passwords-using-environment-variables-or-system-properties/) and [Encrypt passwords with Cipher Tool]({{base_path}}/deploy/security/encrypt-passwords-with-cipher-tool/).

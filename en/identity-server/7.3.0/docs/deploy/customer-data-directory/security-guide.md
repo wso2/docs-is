@@ -59,7 +59,7 @@ Check that the certificate you add is the one you expect. A certificate of {{ pr
 
 They authenticate {{ product_name }} with the sync credential, over Basic authentication. They are served on the same port as the APIs that applications and browsers call, so they are reachable wherever CDD is. Protect them as follows:
 
-1. **Keep them off the public route.** Only {{ product_name }} sends Basic authentication to CDD, and the APIs that applications call take access tokens. So the load balancer or ingress that applications reach CDD through can refuse every request with an `Authorization: Basic` header, and {{ product_name }} reaches CDD on a private address. For example, with NGINX:
+1. **Keep them off the public route.** Only {{ product_name }} sends Basic authentication to CDD, and the APIs that applications call take access tokens. So the load balancer or ingress that applications reach CDD through can refuse every request with an `Authorization: Basic` header, and {{ product_name }} reaches CDD on a private address. Set that address as `server_url` in the `[customer_data_service]` block of {{ product_name }}; the Console keeps the public address, in `cds_host` of `[console.extensions]`. For example, with NGINX:
 
     ```nginx
     if ($http_authorization ~* "^Basic ") {
