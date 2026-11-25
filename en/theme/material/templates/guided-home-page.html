@@ -1,0 +1,209 @@
+<!--
+ * Copyright (c) 2026, WSO2 LLC. (https://www.wso2.com).
+ *
+ * WSO2 LLC. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+{#
+  Guided home page.
+
+  The page content comes from the `home` front matter of the site's index.md,
+  so the home page does not depend on the nav titles in mkdocs.yml.
+
+  home:
+    sections:           rendered top to bottom, in the order listed
+      - layout:         steps | tiles | stages | links
+        eyebrow, title, description
+        featured        true to show the section as a highlighted panel
+                        right under the search box (use it for Start here)
+        items:
+          - title, text, icon, path (docs source file) or url (external)
+            cta               link text (steps)
+            frameworks        list of {title, path, logo} shown in a
+                              dropdown picker (steps); `logo` names a file
+                              in assets/libs/custom-icons without .svg
+            frameworks_label  picker button text (default "Choose your framework")
+#}
+
+{% extends "base.html" %}
+
+{% macro home_icon(name) -%}
+  {% include ".icons/" ~ name ~ ".svg" %}
+{%- endmacro %}
+
+{% macro home_logo(name) -%}
+  {% include "assets/libs/custom-icons/" ~ name ~ ".svg" %}
+{%- endmacro %}
+
+{% macro home_href(item) -%}
+  {%- if item.url -%}
+    {{ item.url }}
+  {%- else -%}
+    {{ (item.path | replace('index.md', '') | replace('.md', '/')) | url }}
+  {%- endif -%}
+{%- endmacro %}
+
+{% macro home_target(item) -%}
+  {%- if item.url and item.url.startswith('http') %} target="_blank" rel="noopener"{% endif -%}
+{%- endmacro %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ 'assets/css/home.css' | url }}">
+{% endblock %}
+
+{% block container %}
+  <div class="md-content">
+    <article class="md-content__inner md-typeset">
+
+      {% include "partials/home-hero.html" %}
+
+      {% set home = page.meta.home if page.meta and page.meta.home else {} %}
+
+      <div class="md-guided-home">
+
+        {% for section in home.sections %}
+          <section class="md-guided-section md-guided-section--{{ section.layout }}{% if section.featured %} md-guided-section--featured{% endif %}">
+            <div class="md-guided-section-header">
+              {% if section.eyebrow %}
+                <p class="md-guided-eyebrow">{{ section.eyebrow }}</p>
+              {% endif %}
+              <h2 class="md-guided-title">{{ section.title }}</h2>
+              {% if section.description %}
+                <p class="md-guided-lead">{{ section.description }}</p>
+              {% endif %}
+            </div>
+
+            {% if section.layout == 'steps' %}
+              <ol class="md-guided-steps">
+                {% for item in section['items'] %}
+                  <li class="md-guided-step">
+                    <span class="md-guided-step-number" aria-hidden="true">{{ loop.index }}</span>
+                    <h3 class="md-guided-step-title">{{ item.title }}</h3>
+                    <p class="md-guided-step-text">{{ item.text }}</p>
+                    {% if item.frameworks %}
+                      <details class="md-guided-picker">
+                        <summary class="md-guided-picker-trigger">
+                          <span class="md-guided-picker-logos" aria-hidden="true">
+                            {% for framework in item.frameworks[:3] %}
+                              <span class="md-guided-fw-logo md-guided-fw-logo--{{ framework.logo }}">{{ home_logo(framework.logo) }}</span>
+                            {% endfor %}
+                            {% if item.frameworks | length > 3 %}
+                              <span class="md-guided-fw-more">+{{ item.frameworks | length - 3 }}</span>
+                            {% endif %}
+                          </span>
+                          <span class="md-guided-picker-label">{{ item.frameworks_label or 'Choose your framework' }}</span>
+                          <span class="md-guided-picker-chevron" aria-hidden="true">{{ home_icon('octicons/chevron-down-16') }}</span>
+                        </summary>
+                        <ul class="md-guided-picker-menu">
+                          {% for framework in item.frameworks %}
+                            <li>
+                              <a class="md-guided-picker-option" href="{{ home_href(framework) }}">
+                                <span class="md-guided-fw-logo md-guided-fw-logo--{{ framework.logo }}" aria-hidden="true">{{ home_logo(framework.logo) }}</span>
+                                <span class="md-guided-picker-option-name">{{ framework.title }}</span>
+                                <span class="md-guided-picker-option-arrow" aria-hidden="true">{{ home_icon('octicons/arrow-right-16') }}</span>
+                              </a>
+                            </li>
+                          {% endfor %}
+                        </ul>
+                      </details>
+                    {% endif %}
+                    <a class="md-guided-link" href="{{ home_href(item) }}"{{ home_target(item) }}>
+                      {{ item.cta }}
+                      <span aria-hidden="true">{{ home_icon('octicons/arrow-right-16') }}</span>
+                    </a>
+                  </li>
+                {% endfor %}
+              </ol>
+
+            {% elif section.layout == 'stages' %}
+              <ol class="md-guided-stages">
+                {% for item in section['items'] %}
+                  <li>
+                    <a class="md-guided-stage" href="{{ home_href(item) }}"{{ home_target(item) }}>
+                      <span class="md-guided-stage-top">
+                        <span class="md-guided-icon" aria-hidden="true">{{ home_icon(item.icon) }}</span>
+                        <span class="md-guided-stage-index" aria-hidden="true">{{ '%02d' % loop.index }}</span>
+                      </span>
+                      <span class="md-guided-card-title">{{ item.title }}</span>
+                      <span class="md-guided-card-text">{{ item.text }}</span>
+                    </a>
+                  </li>
+                {% endfor %}
+              </ol>
+
+            {% elif section.layout == 'links' %}
+              <ul class="md-guided-links">
+                {% for item in section['items'] %}
+                  <li>
+                    <a class="md-guided-link-row" href="{{ home_href(item) }}"{{ home_target(item) }}>
+                      <span class="md-guided-icon" aria-hidden="true">{{ home_icon(item.icon) }}</span>
+                      <span class="md-guided-card-body">
+                        <span class="md-guided-card-title">{{ item.title }}</span>
+                        <span class="md-guided-card-text">{{ item.text }}</span>
+                      </span>
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+
+            {% else %}
+              <ul class="md-guided-tiles">
+                {% for item in section['items'] %}
+                  <li>
+                    <a class="md-guided-tile" href="{{ home_href(item) }}"{{ home_target(item) }}>
+                      <span class="md-guided-icon" aria-hidden="true">{{ home_icon(item.icon) }}</span>
+                      <span class="md-guided-card-body">
+                        <span class="md-guided-card-title">{{ item.title }}</span>
+                        <span class="md-guided-card-text">{{ item.text }}</span>
+                      </span>
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </section>
+        {% endfor %}
+
+      </div>
+
+      {{ page.content }}
+
+      <script>
+        // Close an open framework picker on an outside click or Escape.
+        // The picker works without this script; it only tidies the behavior.
+        (function () {
+          if (window.__mdGuidedPicker) { return; }
+          window.__mdGuidedPicker = true;
+          var openPickers = function () {
+            return document.querySelectorAll("details.md-guided-picker[open]");
+          };
+          document.addEventListener("click", function (event) {
+            openPickers().forEach(function (picker) {
+              if (!picker.contains(event.target)) { picker.removeAttribute("open"); }
+            });
+          });
+          document.addEventListener("keydown", function (event) {
+            if (event.key !== "Escape") { return; }
+            openPickers().forEach(function (picker) {
+              picker.removeAttribute("open");
+              picker.querySelector("summary").focus();
+            });
+          });
+        })();
+      </script>
+    </article>
+  </div>
+{% endblock %}
