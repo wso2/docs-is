@@ -6,6 +6,12 @@ Logging is essential for maintaining system integrity and security. Two main typ
 
 - [Audit logs]({{base_path}}/guides/identity-platform-logs/audit-logs/) track critical state changes within WSO2 Identity Platform resources for security enhancement and incident investigation purposes.
 
+## Log retention
+
+By default, WSO2 Identity Platform retains diagnostic and audit logs for 30 days. Logs older than 30 days aren't available in the WSO2 Identity Platform Console.
+
+To keep logs for longer, set up [Remote Log Publishing](#remote-log-publishing) to send them to your own servers.
+
 ## Analyze logs
 
 You can access logs in WSO2 Identity Platform by navigating to **Logs** on the WSO2 Identity Platform Console. The logs portal looks as below.
