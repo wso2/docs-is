@@ -1,0 +1,16 @@
+      <div class="md-home-search-container">
+        <span class="md-home-gradient"></span>
+        <h1 class="md-home-search-input-label">How can we help?</h1>
+
+        {% include "partials/search.html" %}
+
+        <p class="md-home-search-input-description">
+          Welcome to {{ config.extra.product_name }} documentation! Within these pages,
+          you will learn how to build a seamless login experience for your applications using
+          {{ config.extra.product_name }}.
+        </p>
+
+        {% if home_banner_in_hero is not defined or home_banner_in_hero %}
+          {% include "partials/home-product-banner.html" %}
+        {% endif %}
+      </div>
