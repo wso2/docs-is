@@ -41,42 +41,9 @@ Upon receiving the response, {{product_name}} applies any modifications to the a
 
 {{product_name}} can trigger the pre-issue access token action for the [token exchange]({{base_path}}/guides/authentication/configure-token-exchange/) grant (`urn:ietf:params:oauth:grant-type:token-exchange`). Your external service can then change exchanged tokens the same way it changes tokens of other grant types, for example, by adding custom claims.
 
-### Availability
-
 {% if product_name == "WSO2 Identity Platform" %}
-Token exchange triggers the action in organizations created on or after November 26, 2026. If your organization was created before that date and you need this, contact {{ product_name }} support through the [WSO2 cloud support portal](https://cloud-support.wso2.com/){:target="_blank"}.
-{% else %}
-Token exchange triggers the action in organizations created on or after November 26, 2026.
-
-In organizations created before that date, token exchange doesn't trigger the action, so existing actions keep receiving the same requests as before. This includes organizations that existed before you migrated to this version of {{product_name}}. To turn it on for these organizations, use one of the following options.
-
-- **All organizations created before the date**: Add the following configuration to the `<IS_HOME>/repository/conf/deployment.toml` file and restart the server.
-
-    ```toml
-    [compatibility_setting.pre_issue_access_token_action.enable_for_token_exchange_grant]
-    target_value = true
-    ```
-
-- **A single organization**: Send the following request with an access token of the organization that has the `internal_config_update` scope. The change applies without a restart.
-
-    ```bash
-    curl --location --request PATCH 'https://localhost:9443/t/<tenant-domain>/api/server/v1/configs/compatibility-settings' \
-    --header 'Authorization: Bearer <access-token>' \
-    --header 'Content-Type: application/json' \
-    --data '{
-        "preIssueAccessTokenAction": {
-            "enableForTokenExchangeGrant": true
-        }
-    }'
-    ```
-
-    To turn it off for the organization, send the same request with `false`. A value set for an organization this way takes precedence over the `deployment.toml` configuration.
-{% endif %}
-
-{% if product_name == "WSO2 Identity Platform" %}
-In a sub-organization, the creation date of its root organization applies.
-{% else %}
-In a sub-organization, the creation date and setting of its root organization apply.
+!!! info
+    Token exchange triggers the action in organizations created on or after November 26, 2026. If your organization was created before that date and you need this, contact {{ product_name }} support through the [WSO2 cloud support portal](https://cloud-support.wso2.com/){:target="_blank"}.
 {% endif %}
 
 ### How the action behaves for token exchange
