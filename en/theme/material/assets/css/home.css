@@ -418,11 +418,6 @@
 
 .md-guided-section {
     padding: 2.5rem 0;
-    border-top: 1px solid var(--md-guided-border);
-}
-
-.md-guided-section:first-of-type {
-    border-top: none;
 }
 
 .md-guided-section-header {
@@ -783,6 +778,8 @@
 .md-guided-fw-logo--vue { color: #42b883; }
 .md-guided-fw-logo--javascript { color: #e0c400; }
 .md-guided-fw-logo--spring-boot { color: #6db33f; }
+.md-guided-fw-logo--node { color: #5fa04e; }
+.md-guided-fw-logo--dotnet { color: #7a5af8; }
 .md-guided-fw-logo--nextjs path { fill: currentColor; }
 
 /* Featured section: Start here, shown as one highlighted panel under search */
@@ -865,10 +862,6 @@
     line-height: 1.5rem;
 }
 
-.md-guided-section--featured + .md-guided-section {
-    border-top: none;
-}
-
 /* Tiles: feature and resource grids */
 
 .md-typeset .md-guided-home .md-guided-tiles {
@@ -881,7 +874,7 @@
 
 .md-typeset .md-guided-home .md-guided-stages {
     display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: .8rem;
 }
 
@@ -911,11 +904,6 @@
     gap: .8rem;
 }
 
-@media screen and (max-width: 76.1875em) {
-    .md-typeset .md-guided-home .md-guided-stages {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-}
 
 @media screen and (max-width: 59.9375em) {
     .md-typeset .md-guided-home .md-guided-steps,
@@ -949,3 +937,9 @@
     }
 }
 
+
+@media screen and (max-width: 29.9375em) {
+    .md-typeset .md-guided-home .md-guided-stages {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
