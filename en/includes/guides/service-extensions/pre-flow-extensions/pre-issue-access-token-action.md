@@ -20,7 +20,14 @@ For example, when your service modifies an access token during the authorization
 
 !!! note
     Currently, this action applies only at the root organization level and is available only for <code>JWT</code> tokens.
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+    It supports the following grant types: <code>authorization code</code>, <code>client credentials</code>, <code>password</code>, <code>refresh token</code>, and <code>token exchange</code>. For token exchange, see [Use the action with token exchange](#use-the-action-with-token-exchange).
+{% if product_name == "WSO2 Identity Platform" %}
+    Token exchange triggers the action in organizations created on or after November 26, 2026. If your organization was created before that date and you need this, contact {{ product_name }} support through the [WSO2 cloud support portal](https://cloud-support.wso2.com/){:target="_blank"}.
+{% endif %}
+{% else %}
     It supports the following grant types: <code>authorization code</code>, <code>client credentials</code>, <code>password</code>, and <code>refresh token</code>.
+{% endif %}
 
 ## How pre-issue access token action works
 
@@ -30,6 +37,14 @@ Upon receiving the response, {{product_name}} applies any modifications to the a
 
 === "v1.x"
     {% include "./action-versions/pre-issue-access-token-action-v1.x.md" %}
+
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+
+## Use the action with token exchange
+
+{{product_name}} can trigger the pre-issue access token action for the [token exchange]({{base_path}}/guides/authentication/configure-token-exchange/) grant (`urn:ietf:params:oauth:grant-type:token-exchange`). Your external service can then change exchanged tokens the same way it changes tokens of other grant types, for example, by adding custom claims.
+
+{% endif %}
 
 {% if product_name == "WSO2 Identity Server" %}
 

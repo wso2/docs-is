@@ -69,7 +69,7 @@ The following API contracts defines the request and response structures that you
 </tr>
 <tr>
 <td>grantType</td>
-<td>OAuth2 grant used for the token request, such as authorization code, client credentials, password, or refresh token.</td>
+<td>OAuth2 grant used for the token request, such as authorization code, client credentials, password, or refresh token.{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %} For token exchange, the value is <code>urn:ietf:params:oauth:grant-type:token-exchange</code>.{% endif %}</td>
 </tr>
 <tr>
 <td>scopes</td>
@@ -122,6 +122,16 @@ Sensitive parameters like client secret, username, and password don't appear.
 <td>organization</td>
 <td>This property represents the organization in which the user authenticated successfully.</td>
 </tr>
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+<tr>
+<td>userType</td>
+<td>Whether the user is a <code>LOCAL</code> user or a <code>FEDERATED</code> user. Present only for token exchange requests.</td>
+</tr>
+<tr>
+<td>federatedIdP</td>
+<td>The name of the identity provider of a federated user. Present only for token exchange requests with a federated user.</td>
+</tr>
+{% endif %}
 </tbody>
 </table>
 </td>
@@ -184,6 +194,12 @@ Sensitive parameters like client secret, username, and password don't appear.
 <td>Indicates the subject type (public or pairwise) per OIDC specifications.
 </td>
 </tr>
+{% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version > "7.3.0") %}
+<tr>
+<td>act</td>
+<td>The actor of an impersonation or delegation token exchange request, which {{product_name}} adds to the token. Present only for such token exchange requests. Your external service can't add, replace, or remove this claim for token exchange.</td>
+</tr>
+{% endif %}
 </tbody>
 </table>
 <p>OIDC claims are any extra claims configured in the application to include in the access token. These claims follow the OIDC standard and may include user profile information such as email, given-name, or custom claims specific to the application.</p>
