@@ -102,7 +102,7 @@ To register an API resource,
         </tr>
     </table>
 
-4. To register the scopes for your API, enter the following details and click **Add Scope** .
+4. To register the scopes for your API, enter the following details and click **Add Scope**.
     <table>
         <tr>
             <th>Parameter</th>
@@ -249,7 +249,7 @@ Follow the steps below to use the {{product_name}}'s [React sample application](
 
 3. Set the role audience of the application to **Application** (This is the logical choice if you only have one application using the roles you create).
 
-4. Create application roles for **Reporter** and **Reviewer**. The following shows the permissions for the **Reviewer** role
+4. Create application roles for **Reporter** and **Reviewer**. The following shows the permissions for the **Reporter** role
 
      ![Reporter permissions]({{base_path}}/assets/img/guides/authorization/api-authorization/reporter-permissions.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -261,8 +261,8 @@ Follow the steps below to use the {{product_name}}'s [React sample application](
 
 8. Login as **John** (a reporter), you will see the following scopes in his profile.
 
-    ![Reporter permissions]({{base_path}}/assets/img/guides/authorization/api-authorization/john-scopes.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Scopes of John (reporter)]({{base_path}}/assets/img/guides/authorization/api-authorization/john-scopes.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
 9. Login as **Jane** (a reviewer), you will see the following scopes in her profile.
 
-    ![Reporter permissions]({{base_path}}/assets/img/guides/authorization/api-authorization/jane-scopes.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
+    ![Scopes of Jane (reviewer)]({{base_path}}/assets/img/guides/authorization/api-authorization/jane-scopes.png){: width="800" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
