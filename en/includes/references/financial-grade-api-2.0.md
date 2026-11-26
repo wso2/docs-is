@@ -15,13 +15,13 @@ The following diagram illustrates how FAPI-compliant features combine to secure 
 
 ## Authorization code grant type
 
-The FAPI 2.0 Security Profile requires authorization requests to use the authorization code flow (`response_type=code`). The implicit and hybrid flows are not allowed. Follow the steps below to configure the application for the authorization code flow.
+The FAPI 2.0 Security Profile requires authorization requests to use the authorization code flow (`response_type=code`). The implicit and hybrid flows and the password grant type are not allowed. Follow the steps below to configure the application for the authorization code flow.
 
 1. On the {{ product_name }} Console, go to **Applications**.
 
 2. Select the created FAPI-compliant application and go to its **Protocol** tab.
 
-3. Under **Allowed grant types**, select the **code** grant type, and don't select the **implicit** grant type.
+3. Under **Allowed grant types**, select the **code** grant type, and don't select the **implicit** or **password** grant types.
 
 4. Under **Authorized redirect URLs**, add the redirect URLs allowed for the application.
 

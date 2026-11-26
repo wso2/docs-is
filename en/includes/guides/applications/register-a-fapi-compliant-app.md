@@ -259,7 +259,7 @@ Follow the steps below to configure the FAPI security policy of an organization.
 4. Click **Update** to save the changes.
 
 !!! note
-    If you remove a FAPI profile that existing applications use, those applications keep their profile. The Console shows a warning icon next to the profile in the **FAPI Profile** section of the **Protocol** tab of such an application until you select a supported profile. If you remove **FAPI 2.0 Security**, the issuer of the organization also changes back to the previous issuer.
+    If you remove a FAPI profile that existing applications use, those applications keep their profile. The Console shows a warning icon next to the profile in the **FAPI Profile** section of the **Protocol** tab of such an application until you select a supported profile. If you remove **FAPI 2.0 Security**, the issuer of the organization changes to the token endpoint URL, which is the default issuer of {{product_name}}. This applies whether the issuer was the base URL of the organization or, with the `[oauth.oidc.fapi] version = "2"` configuration, the entity ID of its resident identity provider.
 
     ![Unsupported FAPI profile warning]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-unsupported-profile-warning.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
