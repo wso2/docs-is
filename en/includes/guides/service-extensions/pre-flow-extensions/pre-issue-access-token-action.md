@@ -46,14 +46,6 @@ Upon receiving the response, {{product_name}} applies any modifications to the a
     Token exchange triggers the action in organizations created on or after November 26, 2026. If your organization was created before that date and you need this, contact {{ product_name }} support through the [WSO2 cloud support portal](https://cloud-support.wso2.com/){:target="_blank"}.
 {% endif %}
 
-### How the action behaves for token exchange
-
-- **Refreshing exchanged tokens**: When the client refreshes a token it obtained through token exchange, {{product_name}} triggers the action for the refresh token request as well, unless a rule excludes the refresh token grant. A rule matches a refresh request by the **refresh token** grant type, not by the grant that issued the original token. If a rule limits the action to token exchange and you also need it for refresh requests, add a second **Grant Type** condition set to **refresh token**, combined with OR.
-- **User type**: The `event.user` object includes `userType`, which is `LOCAL` or `FEDERATED`. For a federated user, such as the subject of a token from a trusted token issuer that isn't linked to a local account, it also includes `federatedIdP`, the name of the identity provider.
-- **Actor**: For [impersonation]({{base_path}}/guides/authorization/user-impersonation/) and [delegation]({{base_path}}/guides/authentication/configure-token-exchange/#delegation), the access token claims in the event include the `act` claim that {{product_name}} will add to the token.
-- **Subject and actor tokens**: {{product_name}} never sends the `subject_token` and `actor_token` parameters to your external service, even if the action allows them. The event already carries the user and the actor resolved from these tokens.
-- **Claims your service can't add**: {{product_name}} sets the `act` and `may_act` claims from the verified token exchange request. If your external service adds either claim to an exchanged token, {{product_name}} ignores it.
-
 {% endif %}
 
 {% if product_name == "WSO2 Identity Server" %}
