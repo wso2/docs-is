@@ -5,10 +5,10 @@ You can add Google login to your applications using {{ product_name }} and enabl
 Follow this guide for instructions.
 
 ## Register {{ product_name }} on Google
-You need to register {{ product_name }} as an OAuth2.0 application on Google.
+You need to register {{ product_name }} as an OAuth 2.0 application on Google.
 
 !!! note
-    For detailed instructions, you can follow the [Google documentation](https://support.google.com/googleapi/answer/6158849){:target="_blank"}.
+    For detailed instructions, you can follow the [Google documentation](https://support.google.com/cloud/answer/15549257){:target="_blank"}.
 
 1. Go to the [Google Developer console](https://console.developers.google.com/apis/credentials){:target="_blank"}, create a new project, or select an existing project.
 
@@ -22,7 +22,7 @@ You need to register {{ product_name }} as an OAuth2.0 application on Google.
 
        ![Select APIs & Services]({{base_path}}/assets/img/guides/idp/google-idp/apis-and-services.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
-3. Go to the **Credentials** page, click **Create Credentials**, and select **Oauth client ID**.
+3. Go to the **Credentials** page, click **Create Credentials**, and select **OAuth client ID**.
 
     ![Select APIs & Services]({{base_path}}/assets/img/guides/idp/google-idp/google-oauth-client-id.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
