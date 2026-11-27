@@ -5,6 +5,7 @@ Financial-Grade API (FAPI) specification extends the OAuth and OIDC frameworks a
 This guide walks you through creating and configuring a FAPI-compliant application in {{product_name}}.
 
 {% if product_name == "WSO2 Identity Server" %}
+
 ## Configure {{product_name}} for FAPI compliance
 
 {{product_name}} supports both FAPI 1.0 Advanced and FAPI 2.0 specifications.
@@ -185,13 +186,13 @@ If you have applications that need to dynamically register with {{product_name}}
 
     1. On the {{product_name}} Console, go to **Applications**.
 
-    2. Click the gear icon at the top to open **Dynamic Client Registration** settings.
+    2. Click the gear icon at the top to open **Application Settings**.
 
-    3. Configure the following properties:
+    3. Under **Dynamic Client Registration**, configure the following properties:
 
         ![DCR settings]({{base_path}}/assets/img/guides/applications/fapi-compliant-apps/fapi-dcr-settings.png){width="600px"}
 
-        -   **Require Authentication** is enabled by default. You may deselect the option to not require authentication to create an application with DCR.
+        - **Require Authentication** is enabled by default. You may deselect the option to not require authentication to create an application with DCR.
         - Select **Mandate SSA Validation** to require a valid Software Statement Assertion (SSA) during creation. Provide the necessary JWKS to validate the SSA. If authentication is not required by the endpoint, this is made mandatory.
         - Select **Enforce FAPI Conformance** to make the created application FAPI compliant.
 
@@ -215,7 +216,6 @@ If you have applications that need to dynamically register with {{product_name}}
 2. Refer to the [Dynamic Client Registration (DCR) API]({{base_path}}/apis/dynamic-client-registration-rest-api/) documentation to learn how to register an application with DCR.
 
 {% endif %}
-
 
 ## What's next?
 
