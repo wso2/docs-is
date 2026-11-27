@@ -110,7 +110,7 @@ Time for account to unlock = Account lock duration * (Account lock duration incr
 
     {% if is_version == "7.1.0" %}
     !!! note
-        This configuration is available from **update level 7.1.0.95** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
+        This configuration is available from **update level 7.1.0.96** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
     {% endif %}
     {% endif %}
 {% endif %}
