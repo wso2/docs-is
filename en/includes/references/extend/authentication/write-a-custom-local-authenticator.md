@@ -70,7 +70,7 @@ To deploy the custom local authenticator:
     enable = true
     ```
 
-{% if is_version == "7.1.0" or is_version == "next" %}
+{% if is_version == "7.1.0" or is_version == "7.2.0" or is_version == "next" %}
 4. To ensure the custom local authenticator appears as a first-factor option in the {{ product_name }} Console login flow UI, add the following configuration to the  `<IS_HOME>/repository/conf/deployment.toml` file.
 
     ``` toml
