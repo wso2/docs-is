@@ -4,7 +4,7 @@ Deploying the remote agent efficiently is crucial for ensuring a stable and secu
 
 ### Secure the installation token
 
-Store the installation token securely and avoid sharing it with unauthorized users. Select the most suitable method to store the token based on your deployment environment. If you're using a containerized secured environment, you can go ahead with the environment variable method. For other instances such as virtual machines, store the token in the agent configuration file and encrypt it using the provided cipher tool.
+Store the installation token securely and avoid sharing it with unauthorized users.
 
 ### Encrypt sensitive information
 
@@ -18,18 +18,8 @@ Deploy the agent in a local network where the actual user store resides and allo
 
 Monitor the agent to ensure that it is running without any issues. You can configure a monitoring job by utilizing the WSO2 Identity Platform remote user store API to check the status of the agent. Following is a sample curl command to check the agent status.
 
-=== "Optimized Agent"
-
-    ```bash
-    curl --location 'https://api.asgardeo.io/t/{organization-name}/api/remote-userstore/v1/connection/{user-store-id}' \
-    --header 'Accept: application/json' \
-    --header 'Authorization: Bearer {bearer_token}'
-    ```
-
-=== "Classic Agent"
-
-    ```bash
-    curl --location 'https://api.asgardeo.io/t/{organization-name}/api/onprem-userstore/v1/connection/{user-store-id}' \
-    --header 'Accept: application/json' \
-    --header 'Authorization: Bearer {bearer_token}'
-    ```
+```bash
+curl --location 'https://api.asgardeo.io/t/{organization-name}/api/onprem-userstore/v1/connection/{user-store-id}' \
+--header 'Accept: application/json' \
+--header 'Authorization: Bearer {bearer_token}'
+```
