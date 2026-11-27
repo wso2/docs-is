@@ -104,7 +104,7 @@ To disable TOTP enrollment during login:
 
 4. Click **Update** to save your changes.
 
-{% if product_name == "WSO2 Identity Server" and is_version == "7.2.0" %}
+{% if product_name == "WSO2 Identity Server" and (is_version == "7.2.0" or is_version == "7.1.0") %}
 
 ## Display the secret key during enrollment
 
@@ -118,7 +118,11 @@ showSecretKeyInEnrollment = true
 ```
 
 !!! note
+{% if is_version == "7.2.0" %}
     This configuration is available from update level **7.2.0.27** onwards.
+{% elif is_version == "7.1.0" %}
+    This configuration is available from update level **7.1.0.100** onwards.
+{% endif %}
 
 When enabled, users will see the secret key alongside the QR code during TOTP enrollment:
 
