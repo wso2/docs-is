@@ -1047,6 +1047,9 @@ nav:
         - Maintenance and troubleshooting in Production:
           - Backup and Recovery Recommendations: deploy/backup-and-recovery-recommendations.md
           - Troubleshoot in Production Environments: deploy/monitor/troubleshoot-in-production-environments.md
+        - Customer Data Directory:
+          - Deployment guide: deploy/customer-data-directory/deployment-guide.md
+          - Security guide: deploy/customer-data-directory/security-guide.md
       - Compliance:
           - Compliance: deploy/compliance/index.md
           - GDPR: deploy/compliance/gdpr.md
