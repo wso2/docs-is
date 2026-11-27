@@ -121,7 +121,7 @@ The following operations are available in **UserStoreConfigAdminService**.
                         <!--Optional:-->
                         <xsd1:name>driverName</xsd1:name>
                         <!--Optional:-->
-                        <xsd1:value>com.mysql.jdbc.Driver</xsd1:value>
+                        <xsd1:value>com.mysql.cj.jdbc.Driver</xsd1:value>
                     </xsd1:properties>
                     <xsd1:properties>
                         <!--Optional:-->
@@ -204,7 +204,7 @@ The following operations are available in **UserStoreConfigAdminService**.
                         <!--Optional:-->
                         <xsd1:name>driverName</xsd1:name>
                         <!--Optional:-->
-                        <xsd1:value>com.mysql.jdbc.Driver</xsd1:value>
+                        <xsd1:value>com.mysql.cj.jdbc.Driver</xsd1:value>
                     </xsd1:properties>
                     <xsd1:properties>
                         <!--Optional:-->
@@ -287,7 +287,7 @@ The following operations are available in **UserStoreConfigAdminService**.
                         <!--Optional:-->
                         <xsd1:name>driverName</xsd1:name>
                         <!--Optional:-->
-                        <xsd1:value>com.mysql.jdbc.Driver</xsd1:value>
+                        <xsd1:value>com.mysql.cj.jdbc.Driver</xsd1:value>
                     </xsd1:properties>
                     <xsd1:properties>
                         <!--Optional:-->
@@ -370,7 +370,7 @@ The following operations are available in **UserStoreConfigAdminService**.
                         <!--Optional:-->
                         <xsd1:name>driverName</xsd1:name>
                         <!--Optional:-->
-                        <xsd1:value>com.mysql.jdbc.Driver</xsd1:value>
+                        <xsd1:value>com.mysql.cj.jdbc.Driver</xsd1:value>
                     </xsd1:properties>
                     <xsd1:properties>
                         <!--Optional:-->
@@ -453,7 +453,7 @@ The following operations are available in **UserStoreConfigAdminService**.
                         <!--Optional:-->
                         <xsd1:name>driverName</xsd1:name>
                         <!--Optional:-->
-                        <xsd1:value>com.mysql.jdbc.Driver</xsd1:value>
+                        <xsd1:value>com.mysql.cj.jdbc.Driver</xsd1:value>
                     </xsd1:properties>
                     <xsd1:properties>
                         <!--Optional:-->
@@ -1171,7 +1171,7 @@ The following operations are available in **UserStoreConfigAdminService**.
              <!--Optional:-->
              <xsd:domainName>JDBCSECONDARY</xsd:domainName>
              <!--Optional:-->
-             <xsd:driverName>com.mysql.jdbc.Driver</xsd:driverName>
+             <xsd:driverName>com.mysql.cj.jdbc.Driver</xsd:driverName>
              <!--Optional:-->
              <xsd:connectionURL>jdbc:mysql://192.168.48.154:3306/test</xsd:connectionURL>
              <!--Optional:-->
