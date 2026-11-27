@@ -141,4 +141,5 @@ After configuring the mappings, the `amr` claim in the ID token will reflect the
 ## Next steps
 
 - [Configure ACR-based adaptive authentication]({{base_path}}/guides/authentication/conditional-auth/acr-based-adaptive-auth/)
+- [Require MFA before SMS OTP and TOTP enrollment]({{base_path}}/guides/authentication/conditional-auth/require-mfa-before-enrollment/), which uses AMR values to decide when users can enroll
 - [Conditional authentication API reference]({{base_path}}/references/conditional-auth/api-reference/)
