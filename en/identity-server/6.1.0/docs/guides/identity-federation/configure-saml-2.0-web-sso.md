@@ -467,6 +467,7 @@ To configure through file upload:
         ``` java
         [authentication.authenticator.saml] 
         enable=true
+	    [authentication.authenticator.saml.parameters]
         SAMLSSOAssertionConsumerUrl="https://localhost:9443/commonauth"
     	```
 
