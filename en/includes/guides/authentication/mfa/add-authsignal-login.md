@@ -178,28 +178,6 @@ By default, the Authsignal component uses the **Action code** you configured for
 
     To enable this, [create a custom attribute]({{base_path}}/guides/users/attributes/user-attributes/manage-attributes/) named `authsignalChallengeId` and make it read-only and hidden from users. If the attribute doesn't exist, or the link fails with another error, the user has to enroll again.
 
-## Keep users in sync with Authsignal
-
-{{ product_name }} doesn't sync profile changes or user deletions to Authsignal. To do so, deploy the [Authsignal sync service](https://github.com/wso2-extensions/identity-local-auth-authsignal/tree/main/sync-service){: target="_blank"} and subscribe it to the **User profile updated** and **User deleted** [webhooks]({{base_path}}/guides/webhooks/setup-webhooks/) of {{ product_name }}. The service updates the verified email address and mobile number of the Authsignal user when they change, and deletes the Authsignal user when the user gets deleted in {{ product_name }}.
-
-## Troubleshooting
-
-The Authsignal login step reports the following error codes.
-
-| Error code | Description |
-|---|---|
-| `ASIG-60001` | No user was identified before the Authsignal step. Add a step that identifies the user before it. |
-| `ASIG-60002` | The Authsignal secret key isn't configured. |
-| `ASIG-60004` | The Authsignal user ID of the user couldn't be resolved. |
-| `ASIG-60005` / `ASIG-60006` | Starting or verifying the Authsignal flow failed. Check the secret key, region, and the action codes of the flows. |
-| `ASIG-60007` | The user failed or abandoned the Authsignal flow. |
-| `ASIG-60008` | The challenge token doesn't belong to the user the flow started for. |
-| `ASIG-60011` | The challenge token is missing when the user returns from Authsignal. |
-| `ASIG-60012` | The configured region isn't one of `us`, `eu`, `au`, `ca`, or `uk`. |
-| `ASIG-60013` | The Authsignal configuration couldn't be read. |
-
-In registration and password recovery flows, {{ product_name }} reports errors as `FE-65013` (server errors) or `FE-60006` (user errors), with a description of the failure.
-
 ## Limitations
 
 - Authsignal is supported only as a second factor. It can't be the first step of the login flow.
