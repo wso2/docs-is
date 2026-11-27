@@ -177,7 +177,3 @@ By default, the Authsignal component uses the **Action code** you configured for
     If {{ product_name }} can't reach Authsignal to link the user after registration, it retries a few times. If linking still fails, {{ product_name }} saves the challenge ID in the `http://wso2.org/claims/authsignalChallengeId` attribute and retries the link at the user's next sign-in, within the validity period of the challenge (10 minutes by default).
 
     To enable this, [create a custom attribute]({{base_path}}/guides/users/attributes/user-attributes/manage-attributes/) named `authsignalChallengeId` and make it read-only and hidden from users. If the attribute doesn't exist, or the link fails with another error, the user has to enroll again.
-
-## Limitations
-
-- Authsignal is supported only as a second factor. It can't be the first step of the login flow.
