@@ -1,8 +1,21 @@
 # Financial-grade API (FAPI)
 
+{% set fapi_profiles_enabled = product_name == "WSO2 Identity Server" and is_version > "7.2.0" %}
+
 The Financial-grade API (FAPI) specifications, developed by the OpenID Foundation, define strict security requirements for OAuth 2.0 and OpenID Connect flows in financial and high-risk environments. FAPI compliance ensures that applications securely handle sensitive data, prevent token theft, mitigate replay attacks, and comply with industry standards for financial APIs.
 
-{{product_name}} implements [FAPI 1.0 – Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html){: target="_blank"} {% if is_version == "7.1.0" %}and [FAPI 2.0](https://openid.net/specs/fapi-security-profile-2_0-final.html){: target="_blank"} profiles{% endif%} to help organizations achieve secure, standards-compliant API access.
+{{product_name}} implements [FAPI 1.0 – Advanced](https://openid.net/specs/openid-financial-api-part-2-1_0.html){: target="_blank"} {% if is_version == "7.1.0" or fapi_profiles_enabled %}and the [FAPI 2.0 Security Profile](https://openid.net/specs/fapi-security-profile-2_0-final.html){: target="_blank"}{% endif%} to help organizations achieve secure, standards-compliant API access.
+
+{% if is_version == "7.3.0" %}
+
+!!! note
+    The FAPI 2.0 Security Profile is supported from **update level 7.3.0.26** onwards. See the instructions on [updating WSO2 products](https://updates.docs.wso2.com/en/latest/).
+
+{% endif %}
+
+{% if fapi_profiles_enabled %}
+An organization can support FAPI 1.0 Advanced, the FAPI 2.0 Security Profile, or both. Each FAPI-compliant application uses one of the profiles that the organization supports, so applications built for different profiles can run side by side.
+{% endif %}
 
 To create a FAPI compliant application, refer to the guide on [registering a FAPI-compliant application]({{base_path}}/guides/applications/register-a-fapi-compliant-app/).
 
@@ -22,10 +35,14 @@ To create a FAPI compliant application, refer to the guide on [registering a FAP
 
 These features protect financial API interactions against interception, forgery, and replay attacks.
 
-{% if is_version == "7.1.0" %}
-## FAPI 2.0 compliance features
+{% if is_version == "7.1.0" or fapi_profiles_enabled %}
 
-{{product_name}} supports FAPI 2.0 security profiles, including Read and Read/Write flows, with the following capabilities:
+## FAPI 2.0 Security Profile compliance features
+
+{% endif %}
+{% if is_version == "7.1.0" %}
+
+{{product_name}} supports the FAPI 2.0 Security Profile, including Read and Read/Write flows, with the following capabilities:
 
 - **Pushed Authorization Requests (PAR)**: Clients must push authorization requests to the `/par` endpoint, enhancing security by using back-channel communication.
 
@@ -37,9 +54,27 @@ These features protect financial API interactions against interception, forgery,
 
 - **Sender-Constrained Access Tokens**: Access tokens are bound to clients via Mutual TLS (MTLS).
 
-- **Secure Token Handling**: Access and refresh tokens are issued and validated according to FAPI 2.0 Advanced security requirements.
+- **Secure Token Handling**: Access and refresh tokens are issued and validated according to the FAPI 2.0 Security Profile requirements.
+
+{% elif fapi_profiles_enabled %}
+
+{{product_name}} supports the FAPI 2.0 Security Profile with the following capabilities:
+
+- **Pushed Authorization Requests (PAR)**: Clients must push authorization requests to the `/par` endpoint, enhancing security by using back-channel communication.
+
+- **Proof Key for Code Exchange (PKCE)**: PKCE with the `S256` code challenge method is mandatory for authorization code flows.
+
+- **Authorization code**: Restrict response type to authorization code.
+
+- **Client Authentication**: Supports confidential clients using mutual TLS and Private Key JWT. The `aud` claim of a client assertion must be the issuer of {{product_name}} as a single string, not an array.
+
+- **Sender-Constrained Access Tokens**: Access tokens are bound to clients with Mutual TLS (MTLS) or Demonstrating Proof of Possession (DPoP).
+
+- **Authorization Server Issuer Identification**: The authorization response contains the `iss` parameter so that clients can verify the authorization server that sent it.
+
+- **Secure Token Handling**: Access and refresh tokens are issued and validated according to the FAPI 2.0 Security Profile requirements.
 {% endif %}
 
 {{product_name}} undergoes continuous security reviews and updates. Compliance with the latest FAPI specifications is verified with every release. Cryptographic algorithms and frameworks are updated to meet industry standards. New security features and compliance enhancements are integrated without disrupting existing deployments.
 
-Organizations deploying {{product_name}} can confidently achieve FAPI 1.0 Advanced {% if is_version == "7.1.0" %}and FAPI 2.0{% endif %} compliance, protecting financial data, reducing operational risk, and simplifying regulatory adherence.
+Organizations deploying {{product_name}} can confidently achieve FAPI 1.0 Advanced {% if is_version == "7.1.0" or fapi_profiles_enabled %}and FAPI 2.0 Security Profile{% endif %} compliance, protecting financial data, reducing operational risk, and simplifying regulatory adherence.
