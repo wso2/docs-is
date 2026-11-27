@@ -74,11 +74,11 @@ To integrate WSO2 Identity Platform as your CIAM provider, you need to register 
 After registering your application with WSO2 Identity Platform, you can enable [user attributes for the app]({{base_path}}/guides/authentication/user-attributes/enable-attributes-for-oidc-app/). These attributes correspond to the user's profile information that can be retrieved by the application with the user's consent.
 
 !!! note
-  If you need additional attributes that are not listed in the user's profile section by default, you can [configure new attributes]({{base_path}}/guides/users/attributes/manage-attributes/) and retrieve them through the `profile` scope.
+  If you need additional attributes that are not listed in the user's profile section by default, you can [configure new attributes]({{base_path}}/guides/users/attributes/user-attributes/manage-attributes/) and retrieve them through the `profile` scope.
 
 In this tutorial, you will retrieve the First Name, Last Name, Mobile, Country, Birth Date, and Photo URL as profile information.
 
-Note that admin users are not allowed to log in to the Android application. Therefore, it is necessary to create a business user in WSO2 Identity Platform. See the instructions on [managing users in WSO2 Identity Platform]({{base_path}}/guides/users/manage-users/#onboard-a-user).
+Note that admin users are not allowed to log in to the Flutter application. Therefore, it is necessary to create a business user in WSO2 Identity Platform. See the instructions on [managing users in WSO2 Identity Platform]({{base_path}}/guides/users/manage-users/#onboard-users).
 
 ## Step 3: Install dependencies
 
