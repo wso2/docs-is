@@ -17,9 +17,7 @@ authenticator and Identity Server using a sample app. You can find more
 information in the following sections.
 
 !!! info 
-	To download the authenticator and other artifacts, go to
-	[https://store.wso2.com/store/assets/isconnector/instagram](https://store.wso2.com/store/assets/isconnector/list?q=%22_default%22%3A%22Instagram%22)
-	.
+	From the [WSO2 Identity Server Connector Store](https://is.docs.wso2.com/), download the required connector and its artifacts.
 
 !!! info 
 	This is tested with the Instagram API version 1.0 (v1). Instagram
@@ -27,17 +25,14 @@ information in the following sections.
 
 ### Deploying Instagram artifacts
 
--   Place the Instagram authenticator .jar file (
-    `           org.wso2.carbon.extension.identity.authenticator.instagram.connector-X.X.X.jar          `
-    ) into the
-    `           <IS_HOME>/repository/components/dropins          `
-    directory. You can download this from [the
-    store](https://store.wso2.com/store/assets/isconnector/details/175db9b2-1aae-4402-adee-94c4acd751d2)
-    .
+- Place the Instagram authenticator .jar file (
+  `org.wso2.carbon.extension.identity.authenticator.instagram.connector-X.X.X.jar`
+  ) into the
+  `<IS_HOME>/repository/components/dropins`
+  directory. You can download this from the **WSO2 Connector Store**.
 
     !!! note
-        If you want to upgrade the Instagram Authenticator (.jar) in your existing IS pack, please refer [upgrade
-        instructions.](../../develop/upgrading-an-authenticator)
+        If you want to upgrade the Instagram Authenticator (.jar) in your existing IS pack, please refer to the [upgrade instructions](../../develop/upgrading-an-authenticator).
     
 ### Configuring the Instagram App
 
