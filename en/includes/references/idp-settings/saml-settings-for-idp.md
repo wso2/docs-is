@@ -53,7 +53,7 @@ You can find the SAML IdP related settings under **settings** section of the sel
 
 ### Strictly verify authentication response signature info
 
-Specifies if SAML2 authentication response from the external IdP must be signed or not. If this setting is selected, {{ product_name }} will validate the signature in authentication response sent by the external IdP.
+Specifies if SAML2 authentication response from the external IdP must be signed or not. If this setting is selected, {{ product_name }} will validate the signature in authentication response sent by the external IdP. If this setting is not selected, the response signature is not validated. Enable it for production deployments.
 
 ### Logout request signing
 
