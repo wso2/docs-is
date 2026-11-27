@@ -19,7 +19,7 @@ The configurations are as follows:
 
 - **Hazelcast logging type**:
 
-    - This configuration sets the hazelcast logging type to log4j, which allows hazelcast logs to be written to the `wso2carbon.log` file.
+    - This configuration sets the hazelcast logging type to log4j2, which allows hazelcast logs to be written to the `wso2carbon.log` file.
 
 Once you enable advanced logs for hazelcast as explained above, update the configuration of `logger.com-hazelcast.level` in the `<IS_HOME>/repository/conf/log4j2.properties` file. For more information on logging, see [Monitor Logs]({{base_path}}/deploy/monitor/monitor-logs).
 

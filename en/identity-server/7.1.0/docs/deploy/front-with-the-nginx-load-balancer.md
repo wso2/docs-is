@@ -20,7 +20,7 @@ Following is the deployment diagram with the load balancer.
 Use the following steps to configure [NGINX Plus](https://www.nginx.com/products/){:target="_blank"} version 1.7.11 or [nginx community](http://nginx.org/){:target="_blank"} version 1.9.2 as the load balancer for WSO2 products. (In these steps, we refer to both versions collectively as "Nginx".)
 
 1. Install Nginx (NGINX Plus or Nginx community) in a server configured in your cluster.
-2. Configure Nginx to direct the HTTP requests to the two worker nodes via the HTTP 80 port using the `http://is.wso2.com/>`. To do this, create a VHost file ( ` is.http.conf ` ) in the `/etc/nginx/conf.d` directory and add the following configurations into it.
+2. Configure Nginx to direct the HTTP requests to the two worker nodes via the HTTP 80 port using `http://is.wso2.com/`. To do this, create a VHost file ( ` is.http.conf ` ) in the `/etc/nginx/conf.d` directory and add the following configurations into it.
 
     !!! note
          For NGINX Open Source, the location depends on the installation method and OS. Common locations include `/usr/local/nginx/conf`, `/etc/nginx`, or `/usr/local/etc/nginx`.
