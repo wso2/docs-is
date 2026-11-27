@@ -1061,6 +1061,7 @@ paths:
       description: >
         This API provides the capability to update an identity provider's
         federated authenticator config by specifying the authenticator ID. <br>
+        <b>Note:</b> The <code>tags</code> attribute returned by the GET operations is read-only metadata of the authenticator and must not be included in the request body. A request that contains it is rejected with <code>400</code>. <br>
         <b>Scope(Permission) required:</b> `internal_idp_update`
       operationId: updateFederatedAuthenticator
       parameters:
@@ -3171,6 +3172,7 @@ components:
             type: string
           example: [Social Login,OIDC]
           readOnly: true
+          description: Tags of the authenticator. Read-only.
         self:
           type: string
           example: /api/server/v1/identity-providers/meta/federated-authenticators/U0FNTFNTT0F1dGhlbnRpY2F0b3I
@@ -3197,6 +3199,7 @@ components:
             type: string
           example: [Social Login,OIDC]
           readOnly: true
+          description: Tags of the authenticator. Read-only.
         properties:
           type: array
           items:
@@ -3250,6 +3253,7 @@ components:
             type: string
           example: [Social Login,OIDC]
           readOnly: true
+          description: Tags of the authenticator. Read-only, returned in responses only. Remove this attribute before sending a retrieved federated authenticator back in the PUT request to update it, which rejects it with 400.
         properties:
           type: array
           items:
@@ -3396,6 +3400,7 @@ components:
             type: string
           example: [Social Login,OIDC]
           readOnly: true
+          description: Tags of the authenticator. Read-only, returned in responses only. Remove this attribute before sending a retrieved federated authenticator back in the PUT request to update it, which rejects it with 400.
         self:
           type: string
           example: /api/server/v1/identity-providers/123e4567-e89b-12d3-a456-556642440000/federated-authenticators/U0FNTDJBdXRoZW50aWNhdG9y
