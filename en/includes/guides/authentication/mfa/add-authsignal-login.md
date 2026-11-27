@@ -6,7 +6,7 @@ By integrating Authsignal with {{ product_name }}, you can add Authsignal as a s
 
 ## How it works
 
-{{ product_name }} uses [Authsignal Flows](https://docs.authsignal.com/api-reference/server-api/start-flow){: target="_blank"} for every journey.
+{{ product_name }} uses Authsignal as an MFA provider through [Authsignal Flows](https://docs.authsignal.com/api-reference/server-api/start-flow){: target="_blank"}.
 
 1. An earlier step, such as **Identifier First** or **Username & Password**, identifies the user.
 
