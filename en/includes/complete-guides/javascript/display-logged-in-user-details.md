@@ -1,38 +1,37 @@
 
+At this point, we’ve successfully implemented login and logout capabilities using the {{product_name}} Browser SDK. The next step is to explore how to access and display logged-in user details within the app.
 
-At this point, we’ve successfully implemented login and logout capabilities using the WSO2 Identity Platform Javascript SDK. The next step is to explore how to access and display logged-in user details within the app. The WSO2 Identity Platform Javascript SDK loads the basic user attribute details, so that you can directly access those from a variable(such as `user.username`) and use them in the application.
+The SDK provides a `getUser` method that returns the authenticated user's basic information, such as `username`, taken from the ID token. The code example in the following section demonstrates this and can be adapted to fit your application with any necessary customizations.
 
-There may be instances where you’d need to retrieve user attributes outside Javascript components. WSO2 Identity Platform Javascript SDK provides a [getBasicUserInfo](https://github.com/asgardeo/asgardeo-auth-spa-sdk?tab=readme-ov-file#getbasicuserinfo){:target="_blank"} method, which allows you to retrieve the authenticated user’s basic information. The code example in the following section demonstrates this process and can be adapted to fit your application with any necessary customizations.
+Replace the existing code of the `main.js` file with the following code. Alternatively, you can add the highlighted lines into your existing code of the `main.js` file.
 
-Replace the existing code of `main.js` file with the following given code. Alternatively, you can add highlighted two lines into your existing code of `main.js`  file. 
-
-```javascript title="src/main.js" hl_lines="26 36"
-
-import { AsgardeoSPAClient, SPAUtils } from "@asgardeo/auth-spa";
+```javascript title="src/main.js" hl_lines="24 26 36"
+import { AsgardeoSPAClient, hasAuthParamsInUrl } from "@asgardeo/browser";
 
 const auth = AsgardeoSPAClient.getInstance();
 
 await auth.initialize({
-  signInRedirectURL: "http://localhost:5173",
-  signOutRedirectURL: "http://localhost:5173",
-  clientID: "<your-app-client-id>",
-  baseUrl: "https://api.asgardeo.io/t/sagaraorg",
-  scope: ["openid", "profile"]
+  afterSignInUrl: "http://localhost:5173",
+  afterSignOutUrl: "http://localhost:5173",
+  clientId: "<your-app-client-id>",
+  baseUrl: "{{content.sdkconfig.baseUrl}}"
 });
 
 (async () => {
-  let user = undefined;
-
-  if (SPAUtils.hasAuthSearchParamsInURL()) {
-    user = await auth.signIn({ callOnlyOnRedirect: true });
-  } else {
-    user = await auth.trySignInSilently();
+  if (hasAuthParamsInUrl()) {
+    // Complete the sign-in when {{ product_name }} redirects back with an authorization code.
+    await auth.signIn({ callOnlyOnRedirect: true });
+  } else if (!(await auth.isSignedIn())) {
+    // Sign in silently if the user already has a session with {{ product_name }}.
+    await auth.signInSilently();
   }
 
-  if (user) {
+  if (await auth.isSignedIn()) {
     document.getElementById("authenticated-view").style.display = "block";
     document.getElementById("unauthenticated-view").style.display = "none";
-    document.getElementById("username").innerHTML = "Welcome " + user.username;
+    const user = await auth.getUser();
+
+    document.getElementById("username").textContent = "Welcome " + user.username;
   } else {
     document.getElementById("authenticated-view").style.display = "none";
     document.getElementById("unauthenticated-view").style.display = "block";
@@ -58,30 +57,28 @@ document.getElementById("login").addEventListener("click", async () => {
 document.getElementById("logout").addEventListener("click", async () => {
   auth.signOut();
 });
-
-
 ```
-In the above code snippet, the app utilizes the app instance to access authentication state and methods such as `getBasicUserInfo`, `signIn`, and `signOut`. If the user is authenticated, the app displays a welcome message with the username and a button to log out. If the user is not authenticated, it shows a login button that triggers the sign-in process, and the errors during user info retrieval are handled by logging them to the console.
+
+In the above code snippet, the app uses the `auth` instance to access the authentication state and methods such as `getUser`, `signIn`, and `signOut`. If the user is authenticated, the app displays a welcome message with the username and a button to log out. If the user is not authenticated, it shows a login button that triggers the sign-in process.
 
 If your JavaScript app is already running in the development mode, the home page will be reloaded and you will see the updated user interface.
 
 ![Logout screen]({{base_path}}/assets/img/complete-guides/javascript/image18.png){: width="800" style="display: block; margin: 0;"}
 
-
-Similarly, you can access the other user attributes, such as email, display name, allowed scopes, etc as well. The following code snippet shows you how you can access them in your app.  WSO2 Identity Platform Javascript SDK is responsible for processing the ID token and decoding these attributes. 
+Similarly, you can access the other user attributes that `getUser` returns, such as the organization the user signed in to.
 
 ```javascript
-    document.getElementById("scope").innerHTML = user.allowedScopes;
-    document.getElementById("session").innerHTML = user.sessionState;
-    document.getElementById("orgName").innerHTML = user.orgName;
+const user = await auth.getUser();
 
+console.log(user.username);
+console.log(user.org_name);
 ```
 
 ## Getting additional user attributes
 
-Other than the above attributes decoded and available to you by default, WSO2 Identity Platform Javascript SDK provides [getDecodedIDToken](https://github.com/asgardeo/asgardeo-auth-spa-sdk?tab=readme-ov-file#getdecodedidtoken){:target="_blank"}  method to access any other user attributes that are not exposed by `getBasicUserInfo`. This method will decode the ID token in browser storage and return the output as a JSON object.
+Other than the attributes returned by `getUser`, the SDK provides the `getDecodedIdToken` method to access any other user attributes in the ID token. This method decodes the ID token in browser storage and returns its payload as a JSON object.
 
-To get additional user attributes to the ID token, the application should be configured to request the specific user attributes at the time of login. For example, if you want to retrieve a user's mobile number as an attribute, you need to configure the application to request the user’s mobile number as an attribute in the ID token.
+To get additional user attributes in the ID token, the application should be configured to request the specific user attributes at the time of login. For example, if you want to retrieve a user's mobile number as an attribute, you need to configure the application to request the user’s mobile number as an attribute in the ID token.
 
 1. Log in to the {{product_name}} console and select the application you created.
 2. Go to the **User Attributes** tab.
@@ -89,22 +86,30 @@ To get additional user attributes to the ID token, the application should be con
 4. Expand the scope, and you will see that all attributes under this scope (e.g., `mobile_number`) are selected.
 5. Click Update to save the changes.
 
+The app must also request the `phone` scope. Add it to the `scopes` option, together with the scopes the SDK requests by default:
+
 ```javascript
-
-auth.getDecodedIDToken().then((idToken) => {
- var decodedIdToken = idToken;
- console.log(decodedIdToken);
-
- // Get claims from the decoded idtoken
- var phone = decodedIdToken.phone_number;
- console.log(phone);
+await auth.initialize({
+  // other configs
+  scopes: ["openid", "profile", "internal_login", "phone"]
 });
-
-
 ```
 
-In the above code snippet, we run the `getDecodedIDToken` method if the user is authenticated, and print the output to the browser console. The decoded ID token response will be printed to the browser console as follows.
+Then read the claim from the decoded ID token:
+
+```javascript
+const decodedIdToken = await auth.getDecodedIdToken();
+
+console.log(decodedIdToken);
+
+// Get claims from the decoded ID token
+const phone = decodedIdToken.phone_number;
+
+console.log(phone);
+```
+
+In the above code snippet, we call the `getDecodedIdToken` method once the user is authenticated, and print the output to the browser console. The decoded ID token response will be printed to the browser console as follows.
 
 ![ID token]({{base_path}}/assets/img/complete-guides/javascript/image19.png){: width="800" style="display: block; margin: 0;"}
 
-In this step, we further improved our JavaScript app to display the user attributes. As the next step, we will try to secure routes within the app.
+In this step, we further improved our JavaScript app to display the user attributes. As the next step, we will try to call a protected API from the app.

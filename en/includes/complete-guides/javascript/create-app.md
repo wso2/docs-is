@@ -1,9 +1,7 @@
 
-
-For this guide, you will be creating a simple JavaScript app using [Vite](https://vitejs.dev/){:target="_blank"}, a modern, fast and lightweight tool that helps you quickly set up and develop modern JavaScript apps. 
+For this guide, you will be creating a simple JavaScript app using [Vite](https://vitejs.dev/){:target="_blank"}, a modern, fast and lightweight tool that helps you quickly set up and develop modern JavaScript apps.
 
 Open a terminal, change directory to where you want to initialize the project, and run the following command to create your first JavaScript sample app.
-
 
 ```bash
 npm create vite@latest wso2-javascript -- --template vanilla
@@ -28,4 +26,4 @@ Confirm that the dev server is up and running by verifying the output in the ter
 
 ![Navigate to localhost]({{base_path}}/assets/img/complete-guides/javascript/image6.png){: width="800" style="display: block; margin: 0;"}
 
-At this point, you have a simple yet fully functional JavaScript app. In the next step, let’s try to integrate the WSO2 Identity Platform JavaScript SDK with the app. 
+At this point, you have a simple yet fully functional JavaScript app. In the next step, let’s try to integrate the {{product_name}} Browser SDK with the app.
