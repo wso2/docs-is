@@ -1198,6 +1198,146 @@ nav:
       - Guides:
         - Accessing Protected APIs: sdks/nextjs/guides/accessing-protected-apis.md
         - Protecting Routes: sdks/nextjs/guides/protecting-routes.md
+    - Browser SDK:
+      - Overview: sdks/browser/overview.md
+      - APIs:
+        - AsgardeoSPAClient: sdks/browser/apis/asgardeo-spa-client.md
+        - Configuration: sdks/browser/apis/configuration.md
+      - Guides:
+        - Accessing Protected APIs: sdks/browser/guides/accessing-protected-apis.md
+    - React Router SDK:
+      - Overview: sdks/react-router/overview.md
+      - APIs:
+        - Components:
+          - "&lt;ProtectedRoute /&gt;": sdks/react-router/components/protected-route.md
+          - "&lt;CallbackRoute /&gt;": sdks/react-router/components/callback-route.md
+      - Guides:
+        - Protecting Routes: sdks/react-router/guides/protecting-routes.md
+    - TanStack Router SDK:
+      - Overview: sdks/tanstack-router/overview.md
+      - APIs:
+        - Components:
+          - "&lt;ProtectedRoute /&gt;": sdks/tanstack-router/components/protected-route.md
+          - "&lt;CallbackRoute /&gt;": sdks/tanstack-router/components/callback-route.md
+      - Guides:
+        - Protecting Routes: sdks/tanstack-router/guides/protecting-routes.md
+    - Vue SDK:
+      - Overview: sdks/vue/overview.md
+      - APIs:
+        - Plugins:
+          - AsgardeoPlugin: sdks/vue/plugins/asgardeo-plugin.md
+        - Contexts:
+          - "&lt;AsgardeoProvider /&gt;": sdks/vue/contexts/asgardeo-provider.md
+        - Components:
+          - Action Components:
+            - "&lt;SignInButton /&gt;": sdks/vue/components/action-components/sign-in-button.md
+            - "&lt;SignOutButton /&gt;": sdks/vue/components/action-components/sign-out-button.md
+            - "&lt;SignUpButton /&gt;": sdks/vue/components/action-components/sign-up-button.md
+          - Control Components:
+            - "&lt;SignedIn /&gt;": sdks/vue/components/control-components/signed-in.md
+            - "&lt;SignedOut /&gt;": sdks/vue/components/control-components/signed-out.md
+            - "&lt;Loading /&gt;": sdks/vue/components/control-components/loading.md
+          - Authentication Components:
+            - "&lt;SignIn /&gt;": sdks/vue/components/authentication/sign-in.md
+            - "&lt;SignUp /&gt;": sdks/vue/components/authentication/sign-up.md
+          - User Self-care Components:
+            - "&lt;UserDropdown /&gt;": sdks/vue/components/user-selfcare-components/user-dropdown.md
+            - "&lt;UserProfile /&gt;": sdks/vue/components/user-selfcare-components/user-profile.md
+            - "&lt;User /&gt;": sdks/vue/components/user-selfcare-components/user.md
+          - Organization Components (B2B):
+            - "&lt;OrganizationProfile /&gt;": sdks/vue/components/organization-components/organization-profile.md
+            - "&lt;OrganizationSwitcher /&gt;": sdks/vue/components/organization-components/organization-switcher.md
+            - "&lt;OrganizationList /&gt;": sdks/vue/components/organization-components/organization-list.md
+            - "&lt;Organization /&gt;": sdks/vue/components/organization-components/organization.md
+            - "&lt;CreateOrganization /&gt;": sdks/vue/components/organization-components/create-organization.md
+          - Internationalization Components:
+            - "&lt;LanguageSwitcher /&gt;": sdks/vue/components/i18n-components/language-switcher.md
+        - Composables:
+          - useAsgardeo(): sdks/vue/composables/use-asgardeo.md
+          - useUser(): sdks/vue/composables/use-user.md
+          - useOrganization(): sdks/vue/composables/use-organization.md
+          - useI18n(): sdks/vue/composables/use-i18n.md
+          - useTheme(): sdks/vue/composables/use-theme.md
+      - Guides:
+        - Accessing Protected APIs: sdks/vue/guides/accessing-protected-apis.md
+        - Protecting Routes: sdks/vue/guides/protecting-routes.md
+    - Nuxt SDK:
+      - Overview: sdks/nuxt/overview.md
+      - Configuration:
+        - Module configuration: sdks/nuxt/configuration/module-configuration.md
+      - APIs:
+        - Contexts:
+          - "&lt;AsgardeoRoot /&gt;": sdks/nuxt/contexts/asgardeo-root.md
+        - Middleware:
+          - auth: sdks/nuxt/middleware/auth.md
+          - defineAsgardeoMiddleware(): sdks/nuxt/middleware/define-asgardeo-middleware.md
+        - Components:
+          - Action Components:
+            - "&lt;AsgardeoSignInButton /&gt;": sdks/nuxt/components/action-components/sign-in-button.md
+            - "&lt;AsgardeoSignOutButton /&gt;": sdks/nuxt/components/action-components/sign-out-button.md
+            - "&lt;AsgardeoSignUpButton /&gt;": sdks/nuxt/components/action-components/sign-up-button.md
+          - Control Components:
+            - "&lt;AsgardeoSignedIn /&gt;": sdks/nuxt/components/control-components/signed-in.md
+            - "&lt;AsgardeoSignedOut /&gt;": sdks/nuxt/components/control-components/signed-out.md
+            - "&lt;AsgardeoLoading /&gt;": sdks/nuxt/components/control-components/loading.md
+          - Authentication Components:
+            - "&lt;AsgardeoSignIn /&gt;": sdks/nuxt/components/authentication/sign-in.md
+            - "&lt;AsgardeoSignUp /&gt;": sdks/nuxt/components/authentication/sign-up.md
+            - "&lt;AsgardeoCallback /&gt;": sdks/nuxt/components/authentication/callback.md
+          - User Self-care Components:
+            - "&lt;AsgardeoUserDropdown /&gt;": sdks/nuxt/components/user-selfcare-components/user-dropdown.md
+            - "&lt;AsgardeoUserProfile /&gt;": sdks/nuxt/components/user-selfcare-components/user-profile.md
+            - "&lt;AsgardeoUser /&gt;": sdks/nuxt/components/user-selfcare-components/user.md
+          - Organization Components (B2B):
+            - "&lt;AsgardeoCreateOrganization /&gt;": sdks/nuxt/components/organization-components/create-organization.md
+            - "&lt;AsgardeoOrganizationProfile /&gt;": sdks/nuxt/components/organization-components/organization-profile.md
+            - "&lt;AsgardeoOrganizationSwitcher /&gt;": sdks/nuxt/components/organization-components/organization-switcher.md
+            - "&lt;AsgardeoOrganizationList /&gt;": sdks/nuxt/components/organization-components/organization-list.md
+            - "&lt;AsgardeoOrganization /&gt;": sdks/nuxt/components/organization-components/organization.md
+        - Composables:
+          - useAsgardeo(): sdks/nuxt/composables/use-asgardeo.md
+          - useUser(): sdks/nuxt/composables/use-user.md
+          - useOrganization(): sdks/nuxt/composables/use-organization.md
+          - useTheme(): sdks/nuxt/composables/use-theme.md
+          - useBranding(): sdks/nuxt/composables/use-branding.md
+          - useAsgardeoI18n(): sdks/nuxt/composables/use-asgardeo-i18n.md
+          - useFlow(): sdks/nuxt/composables/use-flow.md
+          - useFlowMeta(): sdks/nuxt/composables/use-flow-meta.md
+        - Server:
+          - Server API routes: sdks/nuxt/server/api-routes.md
+          - Server utilities: sdks/nuxt/server/server-utilities.md
+      - Guides:
+        - Accessing Protected APIs: sdks/nuxt/guides/accessing-protected-apis.md
+        - Protecting Routes: sdks/nuxt/guides/protecting-routes.md
+    - Node SDK:
+      - Overview: sdks/node/overview.md
+      - APIs:
+        - LegacyAsgardeoNodeClient: sdks/node/apis/legacy-asgardeo-node-client.md
+        - Configuration: sdks/node/apis/configuration.md
+        - Framework Integration APIs: sdks/node/apis/framework-integration.md
+      - Guides:
+        - Accessing Protected APIs: sdks/node/guides/accessing-protected-apis.md
+    - Express SDK:
+      - Overview: sdks/express/overview.md
+      - APIs:
+        - AsgardeoExpressClient: sdks/express/apis/asgardeo-express-client.md
+        - Configuration: sdks/express/apis/configuration.md
+        - Session Cookie: sdks/express/apis/session-cookie.md
+        - Middleware:
+          - asgardeoExpressAuth(): sdks/express/apis/asgardeo-express-auth.md
+          - protectRoute(): sdks/express/apis/protect-route.md
+      - Guides:
+        - Protecting Routes: sdks/express/guides/protecting-routes.md
+        - Accessing Protected APIs: sdks/express/guides/accessing-protected-apis.md
+    - JavaScript SDK:
+      - Overview: sdks/javascript/overview.md
+      - APIs:
+        - AsgardeoAuthClient: sdks/javascript/apis/asgardeo-auth-client.md
+        - AsgardeoJavaScriptClient: sdks/javascript/apis/asgardeo-javascript-client.md
+        - Configuration: sdks/javascript/apis/configuration.md
+        - Storage: sdks/javascript/apis/storage.md
+        - Crypto: sdks/javascript/apis/crypto.md
+        - REST API Functions: sdks/javascript/apis/rest-api-functions.md
   - Connectors:
     - Connectors: connectors/index.md
     - Sift:

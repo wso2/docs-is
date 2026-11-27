@@ -26,7 +26,7 @@ Once you finish creating the application, note down the following values from it
 
 ## Create a Nuxt app
 
-Create your new Nuxt app.
+Create your new Nuxt app. When the CLI asks for a template, choose **minimal**. Nuxt 4 places your app source in the `app/` directory, so the files in this guide live under `app/`.
 
 === "npm"
 
@@ -83,6 +83,7 @@ NUXT_PUBLIC_ASGARDEO_BASE_URL="{{content.sdkconfig.baseUrl}}"
 NUXT_PUBLIC_ASGARDEO_CLIENT_ID="<your-app-client-id>"
 NUXT_PUBLIC_ASGARDEO_AFTER_SIGN_OUT_URL="<after-sign-out-redirect-url>"
 ASGARDEO_CLIENT_SECRET="<your-app-client-secret>"
+ASGARDEO_SESSION_SECRET="<a-random-string-of-at-least-32-characters>"
 ```
 
 {% if product_name == "WSO2 Identity Server" %}
@@ -102,38 +103,38 @@ export default defineNuxtConfig({
 
 The SDK reads your credentials from the environment variables automatically. You can optionally configure post sign-in / sign-out destinations in the `asgardeo` config block if needed.
 
-## Wrap your app with `<AsgardeoProvider />`
+## Wrap your app with `<AsgardeoRoot />`
 
-`<AsgardeoProvider />` mounts the SDK's full provider tree (auth, user, organization, branding, theme) and exposes the SSR-hydrated state to every composable below it. The component is auto-registered by the module — you do not need to import it.
+`<AsgardeoRoot />` mounts the SDK's full provider tree (auth, user, organization, branding, theme) and exposes the SSR-hydrated state to every composable below it. The component is auto-registered by the module — you do not need to import it.
 
-Replace the contents of `app.vue` with the following.
+Replace the contents of `app/app.vue` with the following.
 
-```vue title="app.vue" hl_lines="2 4"
+```vue title="app/app.vue" hl_lines="2 4"
 <template>
-  <AsgardeoProvider>
+  <AsgardeoRoot>
     <NuxtPage />
-  </AsgardeoProvider>
+  </AsgardeoRoot>
 </template>
 ```
 
 !!! Info
-    All SDK components are auto-registered (for example, `SignedIn`, `SignInButton`, `UserDropdown`). You can use them directly in any `<template>` without an explicit import.
+    All SDK components are auto-registered with an `Asgardeo` prefix (for example, `AsgardeoSignedIn`, `AsgardeoSignInButton`, `AsgardeoUserDropdown`). You can use them directly in any `<template>` without an explicit import.
 
 ## Add sign-in and sign-out to your app
 
-The WSO2 Identity Platform Nuxt SDK provides `<SignInButton />` and `<SignOutButton />` to start and end a session. Combine them with `<SignedIn />` and `<SignedOut />` to render content based on the user's authentication state.
+The WSO2 Identity Platform Nuxt SDK provides `<AsgardeoSignInButton />` and `<AsgardeoSignOutButton />` to start and end a session. Combine them with `<AsgardeoSignedIn />` and `<AsgardeoSignedOut />` to render content based on the user's authentication state.
 
-Create a `pages/index.vue` file (or replace its contents if it already exists) with the following.
+Create an `app/pages/index.vue` file (or replace its contents if it already exists) with the following.
 
-```vue title="pages/index.vue" hl_lines="3-8"
+```vue title="app/pages/index.vue" hl_lines="3-8"
 <template>
   <header>
-    <SignedOut>
-      <SignInButton />
-    </SignedOut>
-    <SignedIn>
-      <SignOutButton />
-    </SignedIn>
+    <AsgardeoSignedOut>
+      <AsgardeoSignInButton />
+    </AsgardeoSignedOut>
+    <AsgardeoSignedIn>
+      <AsgardeoSignOutButton />
+    </AsgardeoSignedIn>
   </header>
 </template>
 ```
@@ -144,35 +145,35 @@ When the user clicks **Sign In**, the SDK calls `/api/auth/signin`, which redire
 
 The SDK provides several ways to access the signed-in user's profile information. You can use the `User`, `UserProfile`, or `UserDropdown` components to access and display user profile information in a declarative way.
 
-- `<User />`: Component provides a scoped slot (v-slot) pattern to access user profile information:
-- `<UserProfile />` — Component provides a declarative way to display and update user profile information.
-- `<UserDropdown />` — Component provides a dropdown menu with built-in user information and sign-out functionality.
+- `<AsgardeoUser />`: Component provides a scoped slot (v-slot) pattern to access user profile information:
+- `<AsgardeoUserProfile />` — Component provides a declarative way to display and update user profile information.
+- `<AsgardeoUserDropdown />` — Component provides a dropdown menu with built-in user information and sign-out functionality.
 
-Update `pages/index.vue` to render the dropdown and a personalized greeting.
+Update `app/pages/index.vue` to render the dropdown and a personalized greeting.
 
 {% raw %}
 
-```vue title="pages/index.vue" hl_lines="7 14-19"
+```vue title="app/pages/index.vue" hl_lines="7 14-19"
 <template>
   <header>
-    <SignedOut>
-      <SignInButton />
-    </SignedOut>
-    <SignedIn>
-      <UserDropdown />
-      <SignOutButton />
-    </SignedIn>
+    <AsgardeoSignedOut>
+      <AsgardeoSignInButton />
+    </AsgardeoSignedOut>
+    <AsgardeoSignedIn>
+      <AsgardeoUserDropdown />
+      <AsgardeoSignOutButton />
+    </AsgardeoSignedIn>
   </header>
 
   <main>
-    <SignedIn>
-      <User v-slot="{ user }">
+    <AsgardeoSignedIn>
+      <AsgardeoUser v-slot="{ user }">
         <div>
           <p>Welcome back, {{ user.userName || user.username || user.sub }}</p>
         </div>
-      </User>
-      <UserProfile />
-    </SignedIn>
+      </AsgardeoUser>
+      <AsgardeoUserProfile />
+    </AsgardeoSignedIn>
   </main>
 </template>
 ```
@@ -181,16 +182,23 @@ Update `pages/index.vue` to render the dropdown and a personalized greeting.
 
 ## Protect a page with middleware
 
-The WSO2 Identity Platform Nuxt SDK provides a named middleware called `asgardeoMiddleware` that you can use to gate any route behind authentication. Unauthenticated visitors are redirected to the sign-in flow automatically.
+The WSO2 Identity Platform Nuxt SDK provides a named route middleware called `auth` that you can use to gate any route behind authentication. Unauthenticated visitors are redirected to the sign-in flow automatically.
 
-Use `definePageMeta` to apply the `asgardeoMiddleware` middleware to any page. For example, create a `pages/dashboard.vue`:
+Use `definePageMeta` to apply the `auth` middleware to any page. For example, create an `app/pages/dashboard.vue`:
 
 {% raw %}
 
-```vue title="pages/dashboard.vue" hl_lines="2"
+```vue title="app/pages/dashboard.vue" hl_lines="2"
 <script setup lang="ts">
-  definePageMeta({ middleware: ['asgardeoMiddleware'] });
+  definePageMeta({ middleware: 'auth' });
 </script>
+
+<template>
+  <main>
+    <h1>Dashboard</h1>
+    <AsgardeoUserProfile />
+  </main>
+</template>
 ```
 
 {% endraw %}
@@ -240,11 +248,11 @@ To enable this feature, follow these steps:
 
 ## Set up the in-app sign-in form [//] SHOW_IF="data-quickstart=embedded"
 
-Create a dedicated sign-in page that renders the embedded form. Create `pages/sign-in.vue`:
+Create a dedicated sign-in page that renders the embedded form. Create `app/pages/sign-in.vue`:
 
-```vue title="pages/sign-in.vue" hl_lines="2"
+```vue title="app/pages/sign-in.vue" hl_lines="2"
 <template>
-  <SignIn />
+  <AsgardeoSignIn />
 </template>
 ```
 

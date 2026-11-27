@@ -322,6 +322,22 @@ extra:
               version: ''
               documentation_link: sdks/react/overview
               source_link: https://github.com/asgardeo/javascript/tree/main/packages/react
+            - name: React Router SDK
+              artifact_id: '@asgardeo/react-router'
+              icon: assets/img/logo/react-logo.svg
+              description: Route protection for React apps that use React Router, built on the React SDK.
+              registry_url: https://registry.npmjs.org/@asgardeo/react-router/latest
+              version: ''
+              documentation_link: sdks/react-router/overview
+              source_link: https://github.com/asgardeo/javascript/tree/main/packages/react-router
+            - name: TanStack Router SDK
+              artifact_id: '@asgardeo/tanstack-router'
+              icon: assets/img/logo/react-logo.svg
+              description: Route protection for React apps that use TanStack Router, built on the React SDK.
+              registry_url: https://registry.npmjs.org/@asgardeo/tanstack-router/latest
+              version: ''
+              documentation_link: sdks/tanstack-router/overview
+              source_link: https://github.com/asgardeo/javascript/tree/main/packages/tanstack-router
             - name: Vue SDK
               artifact_id: '@asgardeo/vue'
               icon: assets/img/logo/vuejs-logo.svg
@@ -329,6 +345,7 @@ extra:
               description: Vue implementation of Asgardeo JavaScript SDK.
               registry_url: https://registry.npmjs.org/@asgardeo/vue/latest
               version: ''
+              documentation_link: sdks/vue/overview
               source_link: https://github.com/asgardeo/javascript/tree/main/packages/vue
             - name: Nuxt SDK
               artifact_id: '@asgardeo/nuxt'
@@ -337,6 +354,7 @@ extra:
               description: Nuxt implementation of Asgardeo JavaScript SDK.
               registry_url: https://registry.npmjs.org/@asgardeo/nuxt/latest
               version: ''
+              documentation_link: sdks/nuxt/overview
               source_link: https://github.com/asgardeo/javascript/tree/main/packages/nuxt
             - name: Next.js SDK
               artifact_id: '@asgardeo/nextjs'
@@ -346,21 +364,39 @@ extra:
               version: ''
               documentation_link: sdks/nextjs/overview
               source_link: https://github.com/asgardeo/javascript/tree/main/packages/nextjs
-            - name: Auth SPA SDK
-              artifact_id: '@asgardeo/auth-spa'
+            - name: Browser SDK
+              artifact_id: '@asgardeo/browser'
               icon: assets/img/logo/javascript-logo.svg
-              description: An SDK to integrate {{ product_name }} into single page applications
-              registry_url: https://registry.npmjs.org/@asgardeo/auth-spa/latest
-              documentation_link: get-started/try-your-own-app/javascript/
-              download_link: https://github.com/asgardeo/asgardeo-auth-spa-sdk/releases/latest/download/asgardeo-html-js-app.zip
-              source_link: https://github.com/asgardeo/asgardeo-auth-spa-sdk
-            - name: Auth Node SDK
-              artifact_id: '@asgardeo/auth-node'
+              description: Browser implementation of Asgardeo JavaScript SDK for single-page applications.
+              registry_url: https://registry.npmjs.org/@asgardeo/browser/latest
+              version: ''
+              documentation_link: sdks/browser/overview
+              source_link: https://github.com/asgardeo/javascript/tree/main/packages/browser
+            - name: Node SDK
+              artifact_id: '@asgardeo/node'
+              icon: assets/img/logo/javascript-logo.svg
+              description: Node.js implementation of Asgardeo JavaScript SDK for server-side applications.
+              registry_url: https://registry.npmjs.org/@asgardeo/node/latest
+              version: ''
+              documentation_link: sdks/node/overview
+              source_link: https://github.com/asgardeo/javascript/tree/main/packages/node
+            - name: Express SDK
+              artifact_id: '@asgardeo/express'
               icon: assets/img/logo/expressjs-logo.svg
               dark_icon: assets/img/logo/expressjs-logo-dark.svg
-              description: An SDK to integrate {{ product_name }} into JS/TS-based frameworks such as ExpressJS
-              registry_url: https://registry.npmjs.org/@asgardeo/auth-node/latest
-              source_link: https://github.com/asgardeo/asgardeo-auth-node-sdk
+              description: Express implementation of Asgardeo JavaScript SDK.
+              registry_url: https://registry.npmjs.org/@asgardeo/express/latest
+              version: ''
+              documentation_link: sdks/express/overview
+              source_link: https://github.com/asgardeo/javascript/tree/main/packages/express
+            - name: JavaScript SDK
+              artifact_id: '@asgardeo/javascript'
+              icon: assets/img/logo/javascript-logo.svg
+              description: Framework-agnostic core that the other JavaScript SDKs are built on.
+              registry_url: https://registry.npmjs.org/@asgardeo/javascript/latest
+              version: ''
+              documentation_link: sdks/javascript/overview
+              source_link: https://github.com/asgardeo/javascript/tree/main/packages/javascript
             - name: Tomcat OIDC Agent
               artifact_id: io.asgardeo.tomcat.oidc.agent
               icon: assets/img/logo/java-logo.svg

@@ -9,106 +9,76 @@ For simplicity, let's assume that the APIs we’re calling are secured by the sa
 
 ## Using SDK Built-in HTTP client
 
-You can use the `httpRequest` API provided by the WSO2 Identity Platform SDK to make HTTP requests to these endpoints. This method is used to send http requests to {{product_name}} or desired backend. The developer doesn’t need to manually attach the access token since this method does it automatically.
+You can use the `httpRequest` method of the {{product_name}} Browser SDK to make HTTP requests to these endpoints. This method sends the request with the user's access token in the `Authorization` header, so you don't need to attach it manually. If the access token has expired, it refreshes the token and retries the request.
 
-The following is a simple example of how you might use the WSO2 Identity Platform SDK’s `httpRequest` to call a protected API endpoint, such as `/scim2/Me` (to get the user profile details after signing in). In this case, the SCIM 2 endpoint is secured by the same {{product_name}} organization. {{product_name}} provides a SCIM 2 API for managing users within your organization. While user management with SCIM 2 is a topic for a different guide, we will use the API as part of our current guide.
-
-!!! note "Note"
-
-    The storage type must be set to `webWorker` for the token to be automatically attached. If it’s set to `sessionStorage` or `localStorage`, you may implement your own function for attaching the access token to the network request. 
+The following is a simple example of how you might use `httpRequest` to call a protected API endpoint, such as `/scim2/Me` (to get the user profile details after signing in). In this case, the SCIM 2 endpoint is secured by the same {{product_name}} organization. {{product_name}} provides a SCIM 2 API for managing users within your organization. While user management with SCIM 2 is a topic for a different guide, we will use the API as part of our current guide.
 
 ```javascript
-
 const requestConfig = {
   headers: {
     "Accept": "application/json",
     "Content-Type": "application/scim+json"
   },
   method: "GET",
-  url: "<base-url>/scim2/Me"
+  url: "{{content.sdkconfig.baseUrl}}/scim2/Me"
 };
 
-
 auth.httpRequest(requestConfig).then((response) => {
-  var req = response;
-  console.log(response);
+  console.log(response.data);
 }).catch((error) => {
   console.error(error);
 });
-
-
 ```
 
-!!! tip "Tip"
+!!! note "Note"
 
-    You need to construct the `<base-url>` value as per the following instructions: 
+    To call {{product_name}} APIs such as `/scim2/Me`, the access token needs the `internal_login` scope. The SDK requests it by default. If you set `scopes` yourself, include it.
 
-    For WSO2 Identity Platform: 
+Note that you don’t need to manually specify the Authorization header under headers in `requestConfig`, as the `httpRequest` method attaches the access token to the network request as the Authorization header.
 
-    `<base-url> = https://api.asgardeo.io/t/<your_Asgardeo_org_name>`
-
-    For WSO2 Identity Server: 
-
-    `<base-url> = https://localhost:9443` 
-
-Note that you don’t need to manually specify the Authorization header under headers in requestConfig, as httpRequest method intercepts the request and attaches the access token to the network request as the Authorization header.
-
-In the above example, the final request config sent by the httpRequest method would be as follows.
+In the above example, the final request config sent by the `httpRequest` method would be as follows.
 
 ```javascript hl_lines="5"
-
 const requestConfig = {
   headers: {
     "Accept": "application/json",
     "Content-Type": "application/scim+json",
-    "Authorization": "Bearer <access_token_retrieved_from_web_worker>"
+    "Authorization": "Bearer <access_token>"
   },
   method: "GET",
-  url: "<base-url>/scim2/Me"
+  url: "{{content.sdkconfig.baseUrl}}/scim2/Me"
 };
-
 ```
 
-!!! tip "Tip"
+In case you want to send multiple API requests in parallel, you can use the `httpRequestAll` method to simultaneously trigger parallel network requests and receive responses after all network requests are completed.
 
-    You need to construct the '<base-url>' value as per the following instructions: 
-
-    For WSO2 Identity Platform: 
-
-    `<base-url> = https://api.asgardeo.io/t/<your_Asgardeo_org_name>`
-
-    For WSO2 Identity Server: 
-
-    `<base-url> = https://localhost:9443` 
-
-In case you want to send multiple API requests in parallel, you can use the httpRequestAll method to simultaneously trigger parallel network requests and receive responses after all network requests are completed.
-
-The following code snippet shows a javascript method which accepts a list of application IDs and sends multiple network requests for each app ID in parallel. The responses will contain results for each id, as an array of responses.
+The following code snippet sends several requests in parallel. The responses contain the results for each request, as an array of responses in the same order as `requestConfigs`.
 
 ```javascript
-
-
-auth.httpRequestAll(configs).then((responses) => {
-  response.forEach((response) => {
-    console.log(response);
+auth.httpRequestAll(requestConfigs).then((responses) => {
+  responses.forEach((response) => {
+    console.log(response.data);
   });
 }).catch((error) => {
   console.error(error);
 });
-
-
 ```
 
-## Using a custom HTTP client
+## Using your own HTTP client
 
-In case you are not using the `webWorker` as the storage type, the `getAccessToken` method can be used to fetch the access token and manually attach it to the network request. The following is an example where the access token is fetched and manually attached to the authorization header of a Fetch request.
+If you prefer your own HTTP client, read the access token with `getAccessToken` and attach it to the request yourself.
 
 ```javascript
+const accessToken = await auth.getAccessToken();
 
-auth.getAccessToken().then((token) => {
-  console.log(token);
-}).error((error) => {
-  console.error(error);
+const response = await fetch("{{content.sdkconfig.baseUrl}}/scim2/Me", {
+  headers: {
+    "Accept": "application/json",
+    "Authorization": `Bearer ${accessToken}`
+  }
 });
-
 ```
+
+!!! note "Note"
+
+    `getAccessToken` doesn't work when `storage` is set to `webWorker`, because the token never leaves the web worker. In that case, use `httpRequest`.
