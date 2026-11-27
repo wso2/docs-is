@@ -400,4 +400,7 @@ Privileged users can resend an SMS OTP on behalf of a user using the following A
     ```
     "HTTP/1.1 201 Created"
     ```
+{% if is_version >= "7.2.0" %}
+For more details, see the [Verification Code Management API]({{base_path}}/apis/verification-code-management-rest-api/).
+{% endif %}
 {% endif %}
