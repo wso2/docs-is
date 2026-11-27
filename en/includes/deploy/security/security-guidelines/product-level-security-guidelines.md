@@ -228,6 +228,13 @@ When set to `false`, the server will reject such requests with an HTTP 400 Bad R
 
 {% endif %}
 
+### SAML response signature validation for federated identity providers
+
+When you add a SAML identity provider as a connection, enable [Strictly verify authentication response signature info]({{base_path}}/references/idp-settings/saml-settings-for-idp/#strictly-verify-authentication-response-signature-info) so that {{product_name}} validates the signature of every authentication response the identity provider sends. Do this for every connection, including connections created by importing the identity provider's metadata, and make sure a valid certificate of the identity provider is configured on the connection.
+
+!!! warning
+    If this setting is not enabled, {{product_name}} does not validate the signature of SAML authentication responses from that identity provider, and a forged response could be used to log in as any user of that connection.
+
 ## Logging and monitoring
 
 ### Log rotation
