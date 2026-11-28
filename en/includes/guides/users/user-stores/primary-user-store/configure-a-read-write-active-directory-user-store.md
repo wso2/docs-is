@@ -90,14 +90,14 @@ configurations.
       - `http://wso2.org/claims/verifiedMobileNumbers`
       {% endif %}
     
-    Refer to the [Update Attributes]({{base_path}}/guides/users/attributes/manage-attributes/#update-attributes) 
+    Refer to the [Update Attributes]({{base_path}}/guides/users/attributes/user-attributes/manage-attributes/#configure-attributes) 
     to learn more on updating attribute mappings.  For `created` and `modified` claims, it is recommended to use the 
     `whenCreated` and `whenChanged` operational attributes.
 
     For `username` and `userid` claims, the `Username Attribute` and `User ID Attribute` properties configured in the User Store configuration should be used to ensure proper user authentication.
 
     {% if not is_version == "7.0.0" %}
-    Ensure that multiple email addresses and mobile numbers attributes are properly configured by following the instructions in the [Assign multiple email addresses and mobile numbers to a user]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user) section.
+    Ensure that multiple email addresses and mobile numbers attributes are properly configured by following the instructions in the [Assign multiple email addresses and mobile numbers to a user]({{base_path}}/guides/users/attributes/configure-multi-valued-contact-attributes/#enabledisable-multiple-emails-and-mobile-numbers-feature) section.
     {% endif %}
 
     !!! Warning

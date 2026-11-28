@@ -166,7 +166,7 @@ To configure a remote user store for your organization:
         - Map the **Username** and **User Id** attributes correctly for successful user authentication. If you have enabled **Read groups**, make sure to correctly map the **Group name** and **Group Id** attributes.
         {% if multi_valued_attributes %}
         - Additionally, to allow multiple email addresses and mobile numbers attributes for users, follow instructions in [Assign multiple email addresses and mobile numbers to 
-        a user]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user).
+        a user]({{base_path}}/guides/users/attributes/configure-multi-valued-contact-attributes/#enabledisable-multiple-emails-and-mobile-numbers-feature).
         {% endif %}
 
 6. Click **Finish** to complete the registration.

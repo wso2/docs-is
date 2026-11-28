@@ -273,7 +273,7 @@ WSO2 Identity Server 7.1.0 introduces a range of new features and enhancements:
 
     Supports multiple email addresses and phone numbers per user, allowing users to register multiple contact points in their profiles. Users can designate a primary email and phone number, which will be used for notifications and OTPs. If verification is enabled, only verified contact details can be set as primary, ensuring security and reliability in communication.
     
-    Learn more about [assigning multiple email address and mobile numbers]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user).
+    Learn more about [assigning multiple email address and mobile numbers]({{base_path}}/guides/users/attributes/configure-multi-valued-contact-attributes/#enabledisable-multiple-emails-and-mobile-numbers-feature).
 
 ## Deprecated features
 

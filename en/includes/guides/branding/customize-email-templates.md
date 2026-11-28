@@ -108,7 +108,7 @@ You can tailor the **subject**, **body**, and **footer** of email notifications 
 !!! warning "Apply changes to user profiles"
     To apply these changes to each user's profile in your organization:
 
-    1. Display the `local` attribute on the user's profile. Learn how to do so in [updating user attributes]({{base_path}}/guides/users/attributes/manage-attributes/#update-attributes).
+    1. Display the `local` attribute on the user's profile. Learn how to do so in [updating user attributes]({{base_path}}/guides/users/attributes/user-attributes/manage-attributes/#configure-attributes).
 
     2. Update the `local` attribute value with the [required locale code]({{base_path}}/guides/branding/{{ localization_doc_path }}/#supported-languages). The value should be updated by,
 
