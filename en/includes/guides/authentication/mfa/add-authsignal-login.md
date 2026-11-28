@@ -123,3 +123,21 @@ When a user registers, the verification methods they set up in Authsignal, such 
 !!! note
     - For registration, the Authsignal flow must verify the email address or mobile number the user entered, for example, with an email or SMS one-time password.
     - For password recovery, use an Authsignal flow that only verifies methods the user already has, and doesn't let them add new ones.
+
+## What Authsignal updates in user profiles
+
+Authsignal updates the following details in a user's profile in {{ product_name }}.
+
+- **Verified email address and mobile number**: After a user registers, {{ product_name }} marks their email address as verified only if the user verified the same email address in Authsignal. The same applies to the mobile number. {{ product_name }} never copies an email address or mobile number from Authsignal to the user's profile.
+
+- **Passkey status**: Each time a user completes an Authsignal flow, {{ product_name }} records whether the user has a passkey in Authsignal. It saves this in the `passkeyManagedExternally` attribute (`http://wso2.org/claims/identity/passkeyManagedExternally`) of the user. If saving it fails, the user can still sign in or register.
+
+## Recover from a failed account link
+
+After a user registers, {{ product_name }} links the verification methods they set up in Authsignal to their new account. If {{ product_name }} can't reach Authsignal at that point, it can try again the next time the user signs in.
+
+To allow this, create a [custom attribute]({{base_path}}/guides/users/attributes/user-attributes/manage-attributes/) named `authsignalChallengeId` (`http://wso2.org/claims/authsignalChallengeId`). Make it read-only, and don't show it to users. {{ product_name }} uses it to remember the pending link.
+
+!!! note
+    - The user must sign in again within 10 minutes of registering, which is the default validity period in Authsignal. After that, the pending link expires.
+    - If the attribute doesn't exist or the link expires, the user has to set up their verification methods in Authsignal again.
