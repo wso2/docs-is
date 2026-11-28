@@ -244,7 +244,7 @@ To try out user login,
     - Organization Name: `Best Car Mart`
     - Email Domain: `bcmart.com`
 
-4. On the {{product_name}} Console, [switch]({{base_path}}/guides/organization-management/manage-organizations/#switch-between-organizations) to the *Best Car Mart* organization Console.
+4. On the {{product_name}} Console, [switch]({{base_path}}/guides/organization-management/manage-organizations/#switch-to-an-organization) to the *Best Car Mart* organization Console.
 
 5. Onboard a new user to the *Best Car Mart* organization with the following information. You can either set a password for the user or invite the user to set the password.
     <table>

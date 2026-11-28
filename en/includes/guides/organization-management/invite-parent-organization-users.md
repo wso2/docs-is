@@ -26,7 +26,7 @@ If a user, who is a member of both the organization and parent organization, wis
 
 1. Login to your organization (root) on the {{ product_name }} Console.
 2. Go to **Organizations** and select the organization to which you wish to invite users.
-3. [Switch]({{base_path}}/guides/organization-management/manage-organizations/#switch-between-organizations) to that organization.
+3. [Switch]({{base_path}}/guides/organization-management/manage-organizations/#switch-to-an-organization) to that organization.
 4. Go to **User Management > Users** and click **+ Add user**. From there, select **Invite Parent User**.
 
     ![Invite parent organization users]({{base_path}}/assets/img/guides/organization/manage-organizations/invite-parent-users.png){: width="600" style="display: block; margin: 0;"}
