@@ -68,7 +68,7 @@ Once the connection is created, enable outbound provisioning at the required lev
     1. On the {{product_name}} Console, do one of the following.
         <ul>
         <li>Use a <a href="{{base_path}}/apis/organization-apis/org-user-mgt/#tag/Users-Endpoint/operation/createUser">SCIM API</a> to create a user.</li>
-        <li><a href="{{base_path}}/guides/users/manage-users/#onboard-single-user">Create a user from the Console</a></li>
+        <li><a href="{{base_path}}/guides/users/manage-users/#onboard-users">Create a user from the Console</a></li>
         <li><a href="{{base_path}}/guides/account-configurations/user-onboarding/self-registration/">Enable self-registration</a> and let a user self-register to {{product_name}}.</li>
         <li><a href="{{base_path}}/guides/authentication/jit-user-provisioning/">Enable JIT-provisioning</a> and let a user sign in with an external identity provider.</li>
         </ul>
@@ -180,7 +180,7 @@ To enable organization-level outbound provisioning in {{product_name}}:
 1. On the {{product_name}} Console, do one of the following.
     <ul>
     <li>Use a <a href="{{base_path}}/apis/organization-apis/org-user-mgt/#tag/Users-Endpoint/operation/createUser">SCIM API</a> to create a user.</li>
-    <li><a href="{{base_path}}/guides/users/manage-users/#onboard-single-user">Create a user from the Console</a></li>
+    <li><a href="{{base_path}}/guides/users/manage-users/#onboard-users">Create a user from the Console</a></li>
     <li><a href="{{base_path}}/guides/account-configurations/user-onboarding/self-registration/">Enable self-registration</a> and let a user self-register to {{product_name}}.</li>
     <li><a href="{{base_path}}/guides/authentication/jit-user-provisioning/">Enable JIT-provisioning</a> and let a user sign in with an external identity provider.</li>
     </ul>

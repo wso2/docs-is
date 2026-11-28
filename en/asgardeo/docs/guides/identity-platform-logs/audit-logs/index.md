@@ -85,7 +85,7 @@ The following are the properties of an audit log:
 
 Follow the steps below to observe an audit log due to user onboarding:
 
-1. <a :href="$withBase('/guides/users/manage-users/#onboard-single-user')">Onboard a user</a> to WSO2 Identity Platform.
+1. <a :href="$withBase('/guides/users/manage-users/#onboard-users')">Onboard a user</a> to WSO2 Identity Platform.
 
 2. On the WSO2 Identity Platform Console, go to **Logs**.
 

@@ -10,11 +10,11 @@ Follow the instructions given below to configure Multi-Factor Authentication (MF
 
 - You need to configure a Push Provider in {{ product_name }}. If you haven't configured a Push Notification Provider yet, follow the instructions in the [Push Provider Configuration]({{base_path}}/guides/notification-channels/configure-push-provider) guide.
 
-- You need to have a user account in {{ product_name }}. If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-users/#onboard-a-user) in {{ product_name }}.
+- You need to have a user account in {{ product_name }}. If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-users/#onboard-users) in {{ product_name }}.
 
 - A push authenticator application is required for the purpose of receiving push notifications. Learn how to [build your own push authenticator app.]({{base_path}}/references/tutorials/build-your-own-push-authenticator-app)
 
-- If push notification device progressive enrollment is disabled, [application users]({{base_path}}/guides/users/manage-users/#onboard-a-user) need to register their push notification devices via the My Account app prior to using push notification based login. Be sure to educate your users on how to [enroll push notification devices via My Account.]({{base_path}}/guides/user-self-service/register-push-notification-device/)
+- If push notification device progressive enrollment is disabled, [application users]({{base_path}}/guides/users/manage-users/#onboard-users) need to register their push notification devices via the My Account app prior to using push notification based login. Be sure to educate your users on how to [enroll push notification devices via My Account.]({{base_path}}/guides/user-self-service/register-push-notification-device/)
 
 ## Set up Push Notifications
 

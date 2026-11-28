@@ -251,7 +251,7 @@ Now, we are ready to try-out our React application secured with WSO2 Identity Pl
 
 Now, if you visit [http://localhost:5173](http://localhost:5173) in your browser, you should see your application, which will look like the screenshot below. For simplicity, we haven’t added any CSS styles yet.
 
-Now, if you click the `Login` button, you will be redirected to the WSO2 Identity Platform cloud, where you can sign in using a test user account. If you haven’t created a test user yet, you can follow [this guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user) to set one up.
+Now, if you click the `Login` button, you will be redirected to the WSO2 Identity Platform cloud, where you can sign in using a test user account. If you haven’t created a test user yet, you can follow [this guide]({{ base_path }}/guides/users/manage-users/#onboard-users) to set one up.
 
 Once you authenticate with your test user credentials, you will be redirected back to the application, and your test user profile will be displayed, as shown in the screenshot below.
 

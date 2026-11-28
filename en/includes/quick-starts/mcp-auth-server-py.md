@@ -431,7 +431,7 @@ Use MCP Inspector to test the authenticated MCP server:
 - Click *Connect*, the inspector will prompt for authentication. Follow the OAuth flow to obtain a bearer token from {{ product_name }}.
 
 !!! Info
-    You need to create a test user in {{ product_name }} by following the instructions in the [Onboard a User guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to try out the login feature.
+    You need to create a test user in {{ product_name }} by following the instructions in the [Onboard a User guide]({{ base_path }}/guides/users/manage-users/#onboard-users){:target="_blank"} to try out the login feature.
 
 - Once the authentication is complete, you should be able to view the resources and invoke the tools exposed by the MCP server.
 - Unauthenticated requests to `/mcp` (e.g., via curl without Authorization header) will return **401 Unauthorized** responses with the appropriate **WWW-Authenticate** header.

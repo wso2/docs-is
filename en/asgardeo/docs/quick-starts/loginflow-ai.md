@@ -122,7 +122,7 @@ Now you can try logging to the **Try It** application using either username & pa
 
 !!! Tip
 
-    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features. Also, make sure you have entered a valid email address in the user profile of the test user to the receive Magic Link login code. 
+    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-users){:target="_blank"} to tryout login and logout features. Also, make sure you have entered a valid email address in the user profile of the test user to the receive Magic Link login code. 
 
 
 ## **Try out Login Flow AI** - Password or GitHub 
@@ -157,7 +157,7 @@ Now you can try logging to the **Try It** application using either username & pa
 
 !!! Tip
 
-    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features. Also, make sure you have a valid GitHub account to login using GitHub. 
+    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-users){:target="_blank"} to tryout login and logout features. Also, make sure you have a valid GitHub account to login using GitHub. 
 
 
 ## **Try out Login Flow AI** - Password or GitHub with Email OTP 
@@ -190,7 +190,7 @@ If it succeeds, the application will ask you to enter the Email OTP that was sen
 
 !!! Tip
 
-    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features. Also, make sure you have entered a valid email address in the user profile of the test user to receive the Email OTP code.
+    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-users){:target="_blank"} to tryout login and logout features. Also, make sure you have entered a valid email address in the user profile of the test user to receive the Email OTP code.
 
 
 <!-- This step is commented due to a product issue -->
@@ -233,6 +233,6 @@ Next, Let's add our test user to the **manager role**.
 
 !!! Tip
 
-    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features. Also, make sure you have entered a valid email address in the user profile of the test user to receive the Magic Link login code.  TODO - GitHub -->
+    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-users){:target="_blank"} to tryout login and logout features. Also, make sure you have entered a valid email address in the user profile of the test user to receive the Magic Link login code.  TODO - GitHub -->
 
 [//] STEPS_END

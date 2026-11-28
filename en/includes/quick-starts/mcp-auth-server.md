@@ -338,7 +338,7 @@ npx @modelcontextprotocol/inspector --url http://localhost:3000/mcp --transport 
 ```
 
 !!! Info
-    You need to create a test user in {{ product_name }} by following the instructions in the [Onboard a User guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to try out the login feature.
+    You need to create a test user in {{ product_name }} by following the instructions in the [Onboard a User guide]({{ base_path }}/guides/users/manage-users/#onboard-users){:target="_blank"} to try out the login feature.
 
 1. In the MCP inspector, open the **Authentication** settings in the left side. Under *OAuth 2.0 Flow* provide the `client-id` obtained earlier in this guide.
 

@@ -84,7 +84,7 @@ Follow the steps below to try out App-Native Authentication with {{product_name}
 
 - To get started, you need to [register an application with {{ product_name }}]({{base_path}}/guides/applications/).
 
-- You need to have a user account in {{ product_name }}. If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-users/#onboard-a-user) in {{ product_name }}.
+- You need to have a user account in {{ product_name }}. If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-users/#onboard-users) in {{ product_name }}.
 
 ### Enable App-Native Authentication
 

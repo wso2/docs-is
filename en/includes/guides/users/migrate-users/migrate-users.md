@@ -49,7 +49,7 @@ Contact the WSO2 Identity Platform team at **asgardeo-help@wso2.com** for suppor
 
 {% else %}
 
-{{ product_name }} supports bulk importing multiple users, which can be used for the user migration. See how to [onboard multiple users]({{base_path}}/guides/users/manage-users/#onboard-multiple-users/). However this will ask users to set their own passwords for the new system.
+{{ product_name }} supports bulk importing multiple users, which can be used for the user migration. See how to [onboard multiple users]({{base_path}}/guides/users/manage-users/#onboard-users). However this will ask users to set their own passwords for the new system.
 
 If you need to migrate existing user passwords as well, {{ product_name }} supports [on-demand silent password migration]({{base_path}}/guides/users/migrate-users/migrate-passwords/#migrate-with-on-demand-silent-migration/) which allows users to log in with their existing passwords and silently migrate them to the new system. For this you can use the [SCIM 2.0 Bulk API]({{base_path}}/apis/scim2/scim2-bulk-rest-api/). Below is a sample request to import the users.
 

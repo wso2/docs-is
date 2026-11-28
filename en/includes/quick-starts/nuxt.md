@@ -287,6 +287,6 @@ Start the dev server.
 Visit your app's homepage at [http://localhost:3000](http://localhost:3000).
 
 !!! Important
-    To try out sign-in and sign-out, create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"}.
+    To try out sign-in and sign-out, create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-users){:target="_blank"}.
 
 [//] STEPS_END

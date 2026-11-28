@@ -20,7 +20,7 @@ one active session at a time. If they try to initiate a second session, they wil
 
 - Assign user accounts to the created roles. For instructions, see the following:
 
-      - [Managing users]({{base_path}}/guides/users/manage-users/#onboard-a-user)
+      - [Managing users]({{base_path}}/guides/users/manage-users/#onboard-users)
       - [Assigning users to roles]({{base_path}}/guides/users/manage-roles/#assign-users-to-a-role)
 
 ## Configure the login flow

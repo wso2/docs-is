@@ -172,7 +172,7 @@ Your MCP server is now running on `http://localhost:8788/sse`.
 
 !!! Important
 
-    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login feature.
+    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-users){:target="_blank"} to tryout login feature.
 
 To test the MCP server go to the Cloudflare [Workers AI LLM Playground](https://playground.ai.cloudflare.com/){:target="_blank"}  and enter the `http://localhost:8788/sse` URL under the MCP Servers section. Then, you’ll be shown a **consent screen**, and once approved, you’ll be redirected to **{{ product_name }}** for authentication. After completing the authentication flow, you will be presented with the tools exposed by your MCP server.
 
@@ -239,7 +239,7 @@ https://remote-mcp-asgardeo.<your-subdomain>.workers.dev/sse
 
 !!! Important
 
-    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login feature.
+    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-users){:target="_blank"} to tryout login feature.
 
 You can test the MCP server using the [Cloudflare Workers AI LLM Playground](https://playground.ai.cloudflare.com/).
 Simply enter `https://remote-mcp-asgardeo.<your-subdomain>.workers.dev/sse` as the MCP server URL and click **Connect**. This will redirect you to the WSO2 Identity Platform login page. Once you've completed the login process, you’ll be able to interact with the LLM in the Playground and use the tools defined in your MCP server.

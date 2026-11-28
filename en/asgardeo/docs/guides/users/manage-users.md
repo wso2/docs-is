@@ -36,7 +36,7 @@ To assign users to groups:
 3. Go to **Groups** and assign groups.
 
     !!! note
-        The **Groups** tab for a user account will only appear after you create one or more groups in the organization. Learn how to [create a group]({{base_path}}/guides/users/manage-groups/#create-new-group)
+        The **Groups** tab for a user account will only appear after you create one or more groups in the organization. Learn how to [create a group]({{base_path}}/guides/users/manage-groups/#onboard-a-group)
 
     ![Add user]({{base_path}}/assets/img/guides/users/assign-groups-to-users.png){: width="600" style="display: block; margin: 0; border: 0.3px solid lightgrey;"}
 
@@ -238,7 +238,7 @@ To reset the password:
 
 You can also use WSO2 Identity Platform's [SCIM API]({{base_path}}/apis/scim2/#tag/Users-Endpoint/operation/patchUser) to initiate the admin initiated password recovery flow.
 
-1. [Get an access token]({{base_path}}/apis/authentication/#get-an-access-token) with the `internal_user_mgt_update` scope.
+1. [Get an access token]({{base_path}}/apis/#get-access-to-apis) with the `internal_user_mgt_update` scope.
 
 2. Use the obtained access token to execute the following cURL.
 
@@ -313,7 +313,7 @@ To disable a user account you can use either the Console or the SCIM API.
 
     You can use {{ product_name }}'s [SCIM API]({{base_path}}/apis/scim2/scim2-users-rest-api/#tag/Users-Endpoint/operation/patchUser) to disable user accounts. To do so,
 
-    1. [Get an access token]({{base_path}}/apis/#oauth-based-authentication) with the `internal_user_mgt_update` scope.
+    1. [Get an access token]({{base_path}}/apis/#get-access-to-apis) with the `internal_user_mgt_update` scope.
 
     2. Use the obtained access token to execute the following cURL.
 

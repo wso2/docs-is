@@ -18,7 +18,7 @@ administrative privileges.
 - [{{ product_name }} Application]({{base_path}}/guides/applications/): A registered application in {{ product_name }}. 
 You can register your own application or use this [Onfido Sample Application](https://github.com/wso2-extensions/identity-verification-onfido/tree/main/samples/react-sample-app){: target="_blank"}.
 
-- [{{ product_name }} User Account]({{base_path}}/guides/users/manage-users/#onboard-a-user): A user account with 
+- [{{ product_name }} User Account]({{base_path}}/guides/users/manage-users/#onboard-users): A user account with 
 values set for the attributes that require verification.
 
 ## Configure Onfido via the dashboard

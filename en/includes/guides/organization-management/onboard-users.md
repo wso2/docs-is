@@ -13,8 +13,8 @@ Organization administrators can add users to their organization using the follow
 
 Organization administrators can use the Console to create users in the organization. Users can be added individually or as a collection from the Console.
 
-- To add a single user, follow this [guide]({{base_path}}/guides/users/manage-users/#onboard-single-user).
-- To add multiple users, follow this [guide]({{base_path}}/guides/users/manage-users/#onboard-multiple-users).
+- To add a single user, follow this [guide]({{base_path}}/guides/users/manage-users/#onboard-users).
+- To add multiple users, follow this [guide]({{base_path}}/guides/users/manage-users/#onboard-users).
 
 {% if product_name == "WSO2 Identity Platform" or (product_name == "WSO2 Identity Server" and is_version != "7.0.0") %}
 

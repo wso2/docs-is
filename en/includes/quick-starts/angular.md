@@ -194,7 +194,7 @@ Visit your app's homepage at [http://localhost:4200](http://localhost:4200).
 
 !!! Important
 
-    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout login and logout features.
+    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-users){:target="_blank"} to tryout login and logout features.
 
 ## Display logged in user details
 
