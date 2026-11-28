@@ -28,7 +28,7 @@ Organizations have roles associated with their shared applications. Shared roles
 
 To assign roles to users of the organization:
 
-1. On the {{ product_name }} Console, [switch to the organization]({{base_path}}/guides/organization-management/manage-organizations/#switch-between-organizations).
+1. On the {{ product_name }} Console, [switch to the organization]({{base_path}}/guides/organization-management/manage-organizations/#switch-to-an-organization).
 2. Go to **User Management** > **Roles**.
 3. Select the role you wish to assign to a user and click **Edit**.
 4. Go to **Users** and click **Assign Users**.
@@ -46,7 +46,7 @@ Organizations maintain the following types of groups, and you can assign your ap
 
 To assign roles to user groups of the organization:
 
-1. On the {{ product_name }} Console, [switch to the organization]({{base_path}}/guides/organization-management/manage-organizations/#switch-between-organizations).
+1. On the {{ product_name }} Console, [switch to the organization]({{base_path}}/guides/organization-management/manage-organizations/#switch-to-an-organization).
 2. Go to **User Management** > **Roles**.
 3. Select the role you wish to assign to a group and click **Edit**.
 4. Go to **Groups** and click **Assign Groups**.
@@ -63,7 +63,7 @@ To assign roles to federated IdP groups:
     - [Register, configure, and create groups for a connection]({{base_path}}/guides/authentication/#manage-connections) in your organization.
     - Add this connection to the sign-in flow of the application to which the roles are associated.
 
-1. On the {{ product_name }} Console, [switch to the organization]({{base_path}}/guides/organization-management/manage-organizations/#switch-between-organizations).
+1. On the {{ product_name }} Console, [switch to the organization]({{base_path}}/guides/organization-management/manage-organizations/#switch-to-an-organization).
 2. Go to **User Management** > **Roles**.
 3. Select the role you wish to assign to a group and click **Edit**.
 4. Select the federated IdP from which you want to select groups.
