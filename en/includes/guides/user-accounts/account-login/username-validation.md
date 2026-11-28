@@ -24,4 +24,4 @@ Follow the steps given below to change the username type for the users.
     - Password recovery
     - Authentication with Magic Link, Email OTP
 
-    Learn how to [update attribute properties]({{base_path}}/guides/users/attributes/manage-attributes/#update-attributes).
+    Learn how to [update attribute properties]({{base_path}}/guides/users/attributes/user-attributes/manage-attributes/#configure-attributes).

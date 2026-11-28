@@ -1,6 +1,6 @@
 # Enable mobile number verification on update
 
-Mobile number verification ensures that when a user updates their primary mobile number, an SMS OTP is sent to the new number for verification. The primary mobile number remains unchanged until the new one is successfully verified. If you have enabled [multiple mobile numbers per user]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user), users can maintain several verified mobile numbers and designate one as the primary mobile number.
+Mobile number verification ensures that when a user updates their primary mobile number, an SMS OTP is sent to the new number for verification. The primary mobile number remains unchanged until the new one is successfully verified. If you have enabled [multiple mobile numbers per user]({{base_path}}/guides/users/attributes/configure-multi-valued-contact-attributes/#enabledisable-multiple-emails-and-mobile-numbers-feature), users can maintain several verified mobile numbers and designate one as the primary mobile number.
 
 !!! note
     - This feature can be invoked via a PUT/PATCH request to the SCIM 2.0 /Users endpoint or /Me endpoint.
@@ -12,7 +12,7 @@ Mobile number verification ensures that when a user updates their primary mobile
 
 - Configure your preferred SMS provider in {{product_name}}. For detailed instructions, see [Configure SMS providers]({{base_path}}/guides/notification-channels/configure-sms-provider/).
 
-- If required, enable [support for multiple mobile numbers]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user) for users.
+- If required, enable [support for multiple mobile numbers]({{base_path}}/guides/users/attributes/configure-multi-valued-contact-attributes/#enabledisable-multiple-emails-and-mobile-numbers-feature) for users.
 
 - Update [mobile number verification settings]({{base_path}}/guides/users/attributes/user-attribute-change-verification/).
 

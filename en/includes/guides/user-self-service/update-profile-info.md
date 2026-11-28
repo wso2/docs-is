@@ -4,7 +4,7 @@ Users can use the My Account portal to update user attributes by following the s
 
 !!! note
     Users can only update attributes that are displayed in user profiles.
-    Learn how administrators can [update attributes]({{base_path}}/guides/users/attributes/manage-attributes/#update-attributes) so that they are displayed in the user profiles.
+    Learn how administrators can [update attributes]({{base_path}}/guides/users/attributes/user-attributes/manage-attributes/#configure-attributes) so that they are displayed in the user profiles.
 
 
 1. Sign in to the My Account portal.

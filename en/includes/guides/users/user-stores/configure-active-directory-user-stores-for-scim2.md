@@ -139,7 +139,7 @@ To configure the attribute mappings:
 5. Enter the **Mapped Attribute (s)** as specified in the table above and click **Update** to save the configurations.
 6. Repeat steps three, four and five for the remaining mandatory local attributes.
 
-Learn more on [how to configure attribute mappings]({{base_path}}/guides/users/attributes/manage-attributes/#update-attributes).
+Learn more on [how to configure attribute mappings]({{base_path}}/guides/users/attributes/user-attributes/manage-attributes/#configure-attributes).
 
 
 ## Step 4: Configure additional properties

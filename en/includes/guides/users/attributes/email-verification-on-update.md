@@ -1,6 +1,6 @@
 # Try out email address update verification
 
-Email address verification ensures that when a user updates their primary email address, a verification request is triggered to the new email address. The primary email address will not change until the new email address is verified. If you have enabled [multiple email addresses per user]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user), users can maintain several verified email addresses and designate one as the primary email address.
+Email address verification ensures that when a user updates their primary email address, a verification request is triggered to the new email address. The primary email address will not change until the new email address is verified. If you have enabled [multiple email addresses per user]({{base_path}}/guides/users/attributes/configure-multi-valued-contact-attributes/#enabledisable-multiple-emails-and-mobile-numbers-feature), users can maintain several verified email addresses and designate one as the primary email address.
 
 !!! note
     - This feature can be invoked via a PUT/PATCH request to the SCIM 2.0 /Users endpoint or /Me endpoint.
@@ -14,7 +14,7 @@ Email address verification ensures that when a user updates their primary email 
 - [Configure the email sending module]({{base_path}}/deploy/configure/email-sending-module/) of the {{product_name}}.
 {% endif %}
 
-- If required, enable [support for multiple email addresses]({{base_path}}/guides/users/attributes/manage-attributes/#assign-multiple-email-addresses-and-mobile-numbers-to-a-user) for users.
+- If required, enable [support for multiple email addresses]({{base_path}}/guides/users/attributes/configure-multi-valued-contact-attributes/#enabledisable-multiple-emails-and-mobile-numbers-feature) for users.
 
 - Update [email verification settings]({{base_path}}/guides/users/attributes/user-attribute-change-verification/).
 
