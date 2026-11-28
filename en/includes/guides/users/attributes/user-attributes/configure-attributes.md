@@ -140,7 +140,7 @@ To configure attributes,
 
     !!! note
         Using the attribute configurations, you can also configure which attributes are displayed in the user creation form when
-        [onboarding users]({{base_path}}/guides/users/manage-users/#onboard-a-single-user) in the console.
+        [onboarding users]({{base_path}}/guides/users/manage-users/#onboard-users) in the console.
 
     To display an attribute in the user creation form, select the **both** **Display** and **Required** checkboxes for the **Administrator Console** entity.
 
@@ -262,7 +262,7 @@ The table manages these settings across the following user interfaces:
 
 !!! tip "Display attributes in the user creation form"
 
-    You can control whether to display this attribute when [onboarding users]({{base_path}}/guides/users/manage-users/#onboard-a-single-user) from the Console. To do so, select both  **Display** and **Required** for **Administrator Console**.
+    You can control whether to display this attribute when [onboarding users]({{base_path}}/guides/users/manage-users/#onboard-users) from the Console. To do so, select both  **Display** and **Required** for **Administrator Console**.
 
 ## Additional settings
 

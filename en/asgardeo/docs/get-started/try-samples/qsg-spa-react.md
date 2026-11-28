@@ -10,7 +10,7 @@ By following this guide, you will be able to deploy a React single-page applicat
 
 - **A user account in WSO2 Identity Platform**
 
-    If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-users/#onboard-a-user) in WSO2 Identity Platform.
+    If you don't already have one, [create a user account]({{base_path}}/guides/users/manage-users/#onboard-users) in WSO2 Identity Platform.
 
 ## Register the app
 

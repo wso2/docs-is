@@ -484,7 +484,7 @@ You will see an output similar to this and your default browser will open, promp
 ```
 
 !!! Info
-    You need to create a test user in {{ product_name }} by following the instructions in the [Onboard a User guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="\_blank"} to try out the login feature.
+    You need to create a test user in {{ product_name }} by following the instructions in the [Onboard a User guide]({{ base_path }}/guides/users/manage-users/#onboard-users){:target="\_blank"} to try out the login feature.
 
 After successful login, return to the terminal. Your agent will automatically resume once it receives the authorization code and call the MCP tool on behalf of the authenticated user.
 

@@ -22,6 +22,6 @@ Before you begin, ensure you have [set up outbound provisioning]({{base_path}}/g
 
 ## Try it out
 
-1. On the {{product_name}} Console, [create a user]({{base_path}}/guides/users/manage-users/#onboard-single-user).
-2. [Assign the created user to a group]({{base_path}}/guides/users/manage-groups/#assign-users-to-a-group) that you specified for outbound provisioning. The user will be provisioned to the external system automatically.
+1. On the {{product_name}} Console, [create a user]({{base_path}}/guides/users/manage-users/#onboard-users).
+2. [Assign the created user to a group]({{base_path}}/guides/users/manage-groups/#assign-users-to-groups) that you specified for outbound provisioning. The user will be provisioned to the external system automatically.
 3. Remove the user from the group. The user will be deprovisioned from the external system automatically.

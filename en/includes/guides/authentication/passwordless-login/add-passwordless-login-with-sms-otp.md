@@ -9,7 +9,7 @@ Follow the instructions given below to implement passwordless login using SMS OT
 
 - To begin, you must [register an application with {{ product_name }}]({{base_path}}/guides/applications/). You have the option to register your own application or use one of the [sample applications]({{base_path}}/get-started/try-samples/) available.
 
-- Ensure you have a user account in {{ product_name }}. If not, you can [create a user account]({{base_path}}/guides/users/manage-users/#onboard-a-user) within {{ product_name }}.
+- Ensure you have a user account in {{ product_name }}. If not, you can [create a user account]({{base_path}}/guides/users/manage-users/#onboard-users) within {{ product_name }}.
 
 - [Update the user profile of the users]({{base_path}}/guides/users/manage-users/#update-the-profile) with an mobile number to which the user will receive the OTP.
 

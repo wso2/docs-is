@@ -326,6 +326,6 @@ Visit your app's homepage at [http://localhost:3000](http://localhost:3000).
 
 !!! Important
 
-    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-single-user){:target="_blank"} to tryout sign-in and sign-out features.
+    You need to create a test user in {{ product_name }} by following this [guide]({{ base_path }}/guides/users/manage-users/#onboard-users){:target="_blank"} to tryout sign-in and sign-out features.
 
 [//] STEPS_END
