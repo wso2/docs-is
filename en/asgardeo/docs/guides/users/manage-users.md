@@ -238,7 +238,7 @@ To reset the password:
 
 You can also use WSO2 Identity Platform's [SCIM API]({{base_path}}/apis/scim2/#tag/Users-Endpoint/operation/patchUser) to initiate the admin initiated password recovery flow.
 
-1. [Get an access token]({{base_path}}/apis/#step-3-request-an-access-token) with the `internal_user_mgt_update` scope.
+1. [Get an access token]({{base_path}}/apis/#get-access-to-apis) with the `internal_user_mgt_update` scope.
 
 2. Use the obtained access token to execute the following cURL.
 
@@ -313,7 +313,7 @@ To disable a user account you can use either the Console or the SCIM API.
 
     You can use {{ product_name }}'s [SCIM API]({{base_path}}/apis/scim2/scim2-users-rest-api/#tag/Users-Endpoint/operation/patchUser) to disable user accounts. To do so,
 
-    1. [Get an access token]({{base_path}}/apis/#step-3-request-an-access-token) with the `internal_user_mgt_update` scope.
+    1. [Get an access token]({{base_path}}/apis/#get-access-to-apis) with the `internal_user_mgt_update` scope.
 
     2. Use the obtained access token to execute the following cURL.
 
